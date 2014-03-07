@@ -1,11 +1,11 @@
 ##
 ## Makefile for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_1
-## 
+##
 ## Made by Jean Gravier
 ## Login   <gravie_j@epitech.net>
-## 
+##
 ## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Fri Mar  7 22:50:49 2014 Jean Gravier
+## Last update Sat Mar  8 00:02:06 2014 Jean Gravier
 ##
 
 CC=		gcc
@@ -16,11 +16,12 @@ NAME=		epikong
 
 SRCS=		main.c \
 		draw_map.c \
-		draw_image.c
+		draw_image.c \
+		map.c \
 
 OBJS=		$(SRCS:.c=.o)
 
-CFLAGS +=	-Wall -Wextra
+CFLAGS +=	-Wall -Wextra -g3
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) -lSDL -lSDL_image

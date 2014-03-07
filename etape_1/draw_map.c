@@ -5,14 +5,12 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 20:58:06 2014 Jean Gravier
-** Last update Fri Mar  7 23:13:54 2014 Jean Gravier
+** Last update Fri Mar  7 23:59:33 2014 Jean Gravier
 */
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <SDL/SDL.h>
-
-#define BLOCK_SIZE 30
+#include "epikong.h"
 
 void		draw_map(SDL_Surface *surface)
 {
