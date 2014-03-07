@@ -5,13 +5,15 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Fri Mar  7 23:41:30 2014 Fritsch harold
+** Last update Sat Mar  8 00:50:59 2014 Fritsch harold
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "epikong.h"
+
+
 
 void		feed_map(t_map *s, char *filename)
 {
@@ -31,6 +33,7 @@ void		feed_map(t_map *s, char *filename)
   rewind(fp);
   if ((s->map = malloc(sizeof(char *) * (count_line + 1))) == NULL)
     exit(EXIT_FAILURE);
+  s->height = count_line;
   count_line = 0;
   while ((read = getline(&line, &len, fp)) != -1)
     {
@@ -42,6 +45,7 @@ void		feed_map(t_map *s, char *filename)
       line[strlen(line) - 1] = '\0';
       s->map[count_line++] = strdup(line);
     }
+  s->width = strlen(s->map[0]);
   s->map[count_line] = NULL;
   free(line);
 }
