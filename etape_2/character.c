@@ -5,10 +5,32 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 12:17:26 2014 Jean Gravier
-** Last update Sat Mar  8 20:46:47 2014 Jean Gravier
+** Last update Sat Mar  8 21:21:58 2014 Jean Gravier
 */
 
 #include "epikong.h"
+
+size_t		*get_position(t_map *map, char type)
+{
+  size_t	*pos;
+
+  if ((pos = malloc(sizeof(size_t) * 2)) == NULL)
+    exit_error("malloc error");
+  pos[0] = 0;
+  pos[1] = 0;
+  while (map->map[pos[1]])
+    {
+      while (map->map[pos[1]][pos[0]])
+	{
+	  if (map->map[pos[1]][pos[0]] == type)
+	    return (pos);
+	  ++pos[0];
+	}
+      pos[0] = 0;
+      ++pos[1];
+    }
+  return (pos);
+}
 
 void		set_position(t_map *map, t_character *character, char char_type)
 {

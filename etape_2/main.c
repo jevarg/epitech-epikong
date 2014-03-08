@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
-** Last update Sat Mar  8 20:56:34 2014 Jean Gravier
+** Last update Sat Mar  8 21:23:29 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -77,13 +77,22 @@ void		sdl_loop(t_node *node)
 
 SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 {
+  SDL_Surface	*background;
+  SDL_Rect	rect;
+
+  background = get_image("../data/map/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
     }
   surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height * BLOCK_SIZE, 32, SDL_HWSURFACE);
-  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
+  rect.x = 0;
+  rect.y = 0;
+  rect.w = surface->w;
+  rect.h = surface->h;
+  //  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
+ SDL_BlitSurface(background, NULL, surface, &rect);
   SDL_Flip(surface);
   SDL_WM_SetCaption("Super Expendablos Deluxe edifion", NULL);
   return (surface);
