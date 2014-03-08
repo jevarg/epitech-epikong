@@ -1,11 +1,11 @@
 /*
-** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_1
+** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
 **
-** Made by Fritsch harold
-** Login   <fritsc_h@epitech.net>
+** Made by Jean Gravier
+** Login   <gravie_j@epitech.net>
 **
-** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 13:03:20 2014 Jean Gravier
+** Started on  Sat Mar  8 13:04:47 2014 Jean Gravier
+** Last update Sat Mar  8 13:29:26 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -18,21 +18,22 @@
 # define SPRITE_MONSTER "../data/characters/mechant1-left.png"
 # define SPRITE_OPEN_DOOR "../data/map/door-out.png"
 # define SPRITE_CLOSE_DOOR "../data/map/door-enter.png"
-# define SPRITE_PLAYER "../data/characters/perso1-left.png"
+# define SPRITE_PLAYER_LEFT "../data/characters/perso1-left.png"
+# define SPRITE_PLAYER_RIGHT "../data/characters/perso1-right.png"
 
 # include <SDL/SDL.h>
 
-enum direction_t
+typedef enum e_direction
   {
     LEFT,
     RIGHT
-  };
+  }t_direction;
 
-enum character_t
+typedef enum e_type
   {
     PLAYER,
     MONSTER
-  };
+  }t_type;
 
 typedef struct	s_map
 {
@@ -41,13 +42,20 @@ typedef struct	s_map
   char		**map;
 }		t_map;
 
-typedef struct s_character
+typedef struct	s_character
 {
-  character_t	type;
-  int		x;
-  int		y;
-  direction_t	direction;
-}
+  t_type	type;
+  size_t	x;
+  size_t	y;
+  t_direction	direction;
+}		t_character;
+
+typedef struct	s_node
+{
+  t_map		*map;
+  t_character	*character;
+  SDL_Surface	*surface;
+}		t_node;
 
 /*
 ** map.c
@@ -79,12 +87,19 @@ void		draw_map(t_map *, SDL_Surface *);
 ** character.c
 */
 
-void		set_position(t_map *map, t_character *character, char char_type)
+void		set_position(t_map *, t_character *, char);
 
 /*
 ** vilain.c
 */
 
-void		checkIaMovement(t_map *, t_character *, SDL_Surface *);
+//void		checkIaMovement(t_map *, t_character *, SDL_Surface *);
+
+/*
+** movement.c
+*/
+
+void		move_left(t_node *);
+void		move_right(t_node *);
 
 #endif /* !EPIKONG_H_ */
