@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 18:16:02 2014 Jean Gravier
-** Last update Sat Mar  8 18:19:24 2014 Jean Gravier
+** Last update Sat Mar  8 19:00:56 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -18,17 +18,17 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   if (keystates[SDLK_ESCAPE])
     *stop = 1;
   else if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
-    puts("jump left");//jump_left(node);
+    jump_left(node);
   else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])
-    puts("jump right");//jump_right(node);
+    jump_right(node);
   else if (keystates[SDLK_LEFT])
     move_left(node, node->player);
   else if (keystates[SDLK_RIGHT])
     move_right(node, node->player);
   else if (keystates[SDLK_UP])
-    move_up(node, node->player);
+    ;//move_up(node, node->player);
   else if (keystates[SDLK_DOWN])
-    move_down(node, node->player);
+    ;//move_down(node, node->player);
 }
 t_character	*get_vilains(t_node *node)
 {

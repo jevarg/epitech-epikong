@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 16:27:06 2014 Jean Gravier
-** Last update Sat Mar  8 17:48:35 2014 Jean Gravier
+** Last update Sat Mar  8 19:39:27 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -106,5 +106,15 @@ void		move_ia(t_node *, t_character **);
 
 int		move_left(t_node *, t_character *);
 int		move_right(t_node *, t_character *);
+int		move_up(t_node *, t_character *);
+int		move_down(t_node *, t_character *);
+
+/*
+** air.c
+*/
+
+void		jump_left(t_node *);
+void		jump_right(t_node *);
+void		fall(t_node *);
 
 #endif /* !EPIKONG_H_ */
