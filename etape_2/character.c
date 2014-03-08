@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 12:17:26 2014 Jean Gravier
-** Last update Sat Mar  8 17:34:01 2014 Jean Gravier
+** Last update Sat Mar  8 20:46:47 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -61,7 +61,7 @@ size_t		*set_nposition(t_map *map, t_character *character,
 		character->type = PLAYER;
 	      else if (char_type == 'm')
 		character->type = VILAIN;
-	      pos[0] = i + 1;
+	      pos[0] = i;
 	      pos[1] = j + 1;
 	      return (pos);
 	    }

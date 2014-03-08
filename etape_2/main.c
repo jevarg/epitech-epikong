@@ -1,11 +1,11 @@
 /*
-** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
-** 
-** Made by Fritsch harold
-** Login   <fritsc_h@epitech.net>
-** 
-** Started on  Sat Mar  8 20:03:34 2014 Fritsch harold
-** Last update Sat Mar  8 20:03:37 2014 Fritsch harold
+** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
+**
+** Made by Jean Gravier
+** Login   <gravie_j@epitech.net>
+**
+** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
+** Last update Sat Mar  8 20:52:41 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -26,7 +26,7 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   else if (keystates[SDLK_RIGHT])
     move_right(node, node->player);
   else if (keystates[SDLK_UP])
-    ;//move_up(node, node->player);
+    jump(node);
   else if (keystates[SDLK_DOWN])
     ;//move_down(node, node->player);
 }
@@ -64,7 +64,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(10000);
+      usleep(25000);
       move_ia(node);
       if (event.type == SDL_QUIT)
 	stop = 1;
