@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 16:27:06 2014 Jean Gravier
-** Last update Sat Mar  8 17:48:35 2014 Jean Gravier
+** Last update Sat Mar  8 19:20:53 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -55,6 +55,7 @@ typedef struct	s_node
 {
   t_map		*map;
   t_character	*player;
+  t_character	**vilains;
   size_t	nb_vilains;
   SDL_Surface	*surface;
 }		t_node;
@@ -98,7 +99,7 @@ size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 ** ia.c
 */
 
-void		move_ia(t_node *, t_character **);
+void		move_ia(t_node *);
 
 /*
 ** movement.c

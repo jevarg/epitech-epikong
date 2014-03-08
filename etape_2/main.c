@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 18:16:02 2014 Jean Gravier
-** Last update Sat Mar  8 18:19:24 2014 Jean Gravier
+** Last update Sat Mar  8 19:30:02 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -30,9 +30,9 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   else if (keystates[SDLK_DOWN])
     move_down(node, node->player);
 }
-t_character	*get_vilains(t_node *node)
+
+void		get_vilains(t_node *node)
 {
-  t_character	*vilains;
   size_t	i;
   size_t	*last_pos;
 
@@ -41,18 +41,19 @@ t_character	*get_vilains(t_node *node)
     exit_error("malloc error");
   last_pos[0] = 0;
   last_pos[1] = 0;
-  if ((vilains = malloc(sizeof(t_character) * node->nb_vilains)) == NULL)
+  if ((node->vilains = malloc(sizeof(t_character *) * node->nb_vilains)) == NULL)
     exit_error("malloc error");
   while (i < node->nb_vilains)
     {
-      last_pos = set_nposition(node->map, &vilains[i], 'm', last_pos);
-      vilains[i].direction = LEFT;
+      if ((node->vilains[i] = malloc(sizeof(t_character))) == NULL)
+	exit_error("malloc error");
+      last_pos = set_nposition(node->map, node->vilains[i], 'm', last_pos);
+      node->vilains[i]->direction = LEFT;
       ++i;
     }
-  return (vilains);
 }
 
-void		sdl_loop(t_node *node, t_character **vilains)
+void		sdl_loop(t_node *node)
 {
   int		stop;
   SDL_Event	event;
@@ -63,8 +64,8 @@ void		sdl_loop(t_node *node, t_character **vilains)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(50000);
-      move_ia(node, vilains);
+      usleep(10000);
+      move_ia(node);
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (event.type == SDL_KEYDOWN)
@@ -100,7 +101,6 @@ int		main(int argc, char **argv)
   SDL_Surface	*surface;
   t_map		map;
   t_character	player;
-  t_character	*vilains;
   t_node	s;
 
   surface = NULL;
@@ -112,8 +112,8 @@ int		main(int argc, char **argv)
       s.nb_vilains = get_block_nb(s.map, 'm');
       s.surface = sdl_init(s.map, s.surface);
       draw_map(s.map, s.surface);
-      vilains = get_vilains(&s);
-      sdl_loop(&s, &vilains);
+      get_vilains(&s);
+      sdl_loop(&s);
       SDL_Quit();
     }
   return (0);
