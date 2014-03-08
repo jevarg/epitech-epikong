@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
-** Last update Sat Mar  8 21:23:29 2014 Jean Gravier
+** Last update Sat Mar  8 23:07:38 2014 Brieuc de La Fouchardiere
 */
 
 #include <stdio.h>
@@ -64,7 +64,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(25000);
+      usleep(100000);
       move_ia(node);
       if (event.type == SDL_QUIT)
 	stop = 1;

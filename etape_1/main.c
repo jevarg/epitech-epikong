@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sat Mar  8 21:23:44 2014 Jean Gravier
+** Last update Sun Mar  9 00:18:37 2014 Brieuc de La Fouchardiere
 */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
   SDL_Surface	*background;
   SDL_Rect	rect;
 
-  background = get_image("../data/map/backgrounds/bg1.png");
+  background = get_image("../data/contents/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
