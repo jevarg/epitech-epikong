@@ -5,38 +5,45 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 20:58:06 2014 Jean Gravier
-** Last update Sat Mar  8 01:20:28 2014 Jean Gravier
+** Last update Sat Mar  8 01:44:40 2014 Jean Gravier
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "epikong.h"
 
-char		*char_to_sprite(char c)
+void	char_to_sprite(char c, int x, int y, SDL_Surface *surface)
 {
   if (c == 'w')
-    return (SPRITE_WALL);
+    draw_image(surface, SPRITE_WALL, x, y);
   else if (c == 's')
-    return (SPRITE_LADDER);
+    draw_image(surface, SPRITE_LADDER, x, y);
   else if (c == 'm')
-    return (SPRITE_MONSTER);
+    draw_image(surface, SPRITE_MONSTER, x, y);
   else if (c == 'o')
-    return (SPRITE_OPEN_CLOSE);
+    draw_image(surface, SPRITE_OPEN_DOOR, x, y);
   else if (c == 'i')
-    return (SPRITE_CLOSE_DOOR);
+    {
+      draw_image(surface, SPRITE_CLOSE_DOOR, x, y);
+      draw_image(surface, SPRITE_PLAYER, x, y);
+    }
 }
 
 void		draw_map(t_map *map, SDL_Surface *surface)
 {
-  int		i;
-  int		j;
+  size_t	i;
+  size_t	j;
 
+  i = 0;
+  j = 0;
   while (i < map->height)
     {
       while (j < map->width)
 	{
-	  draw_image(surface, char_to_sprite(map[i][j]),
-		     BLOCK_SIZE * i, BLOCK_SIZE * j);
+	  char_to_sprite(map->map[i][j], BLOCK_SIZE * j, BLOCK_SIZE * i, surface);
+	  ++j;
 	}
+      j = 0;
+      ++i;
     }
 }

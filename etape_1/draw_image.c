@@ -5,11 +5,11 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 22:30:36 2014 Jean Gravier
-** Last update Sat Mar  8 01:12:38 2014 Jean Gravier
+** Last update Sat Mar  8 01:29:05 2014 Jean Gravier
 */
 
-#include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include "epikong.h"
 
 void		draw_image(SDL_Surface *surface, char *path, int x, int y)
 {

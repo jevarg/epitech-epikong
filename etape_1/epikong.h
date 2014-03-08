@@ -5,14 +5,22 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 01:06:01 2014 Jean Gravier
+** Last update Sat Mar  8 01:55:27 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
 # define BLOCK_SIZE 30
 
-#include <SDL/SDL.h>
+# define INVALID_MAP_MSG "Invalid map"
+# define SPRITE_WALL "../data/map/wall3.png"
+# define SPRITE_LADDER "../data/map/ladder.png"
+# define SPRITE_MONSTER "../data/characters/mechant1-left.png"
+# define SPRITE_OPEN_DOOR "../data/map/door-out.png"
+# define SPRITE_CLOSE_DOOR "../data/map/door-enter.png"
+# define SPRITE_PLAYER "../data/characters/perso1-left.png"
+
+# include <SDL/SDL.h>
 
 typedef struct	s_map
 {
@@ -25,7 +33,15 @@ typedef struct	s_map
 ** map.c
 */
 
+void		check_map(t_map *);
 void		feed_map(t_map *, char *);
+void		correct_line(char *);
+
+/*
+** error.c
+*/
+
+void		exit_error(char *);
 
 /*
 ** draw_image.c
