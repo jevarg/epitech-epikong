@@ -1,11 +1,11 @@
 /*
-** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sat Mar  8 18:16:02 2014 Jean Gravier
-** Last update Sat Mar  8 19:30:02 2014 Jean Gravier
+** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sat Mar  8 20:03:34 2014 Fritsch harold
+** Last update Sat Mar  8 20:03:37 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -18,17 +18,17 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   if (keystates[SDLK_ESCAPE])
     *stop = 1;
   else if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
-    puts("jump left");//jump_left(node);
+    jump_left(node);
   else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])
-    puts("jump right");//jump_right(node);
+    jump_right(node);
   else if (keystates[SDLK_LEFT])
     move_left(node, node->player);
   else if (keystates[SDLK_RIGHT])
     move_right(node, node->player);
   else if (keystates[SDLK_UP])
-    move_up(node, node->player);
+    ;//move_up(node, node->player);
   else if (keystates[SDLK_DOWN])
-    move_down(node, node->player);
+    ;//move_down(node, node->player);
 }
 
 void		get_vilains(t_node *node)
