@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 11:50:05 2014 Jean Gravier
+** Last update Sat Mar  8 12:21:59 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -28,6 +28,12 @@ enum direction_t
     RIGHT
   };
 
+enum character_t
+  {
+    PLAYER,
+    MONSTER
+  };
+
 typedef struct	s_map
 {
   size_t	width;
@@ -35,8 +41,9 @@ typedef struct	s_map
   char		**map;
 }		t_map;
 
-typedef struct s_player
+typedef struct s_character
 {
+  character_t	type;
   int		x;
   int		y;
   direction_t	direction;
@@ -67,5 +74,11 @@ void		draw_image(SDL_Surface *, char *, int, int);
 */
 
 void		draw_map(t_map *, SDL_Surface *);
+
+/*
+** character.c
+*/
+
+void		set_position(t_map *map, t_character *character, char char_type)
 
 #endif /* !EPIKONG_H_ */

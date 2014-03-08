@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sat Mar  8 01:54:42 2014 Jean Gravier
+** Last update Sat Mar  8 12:21:21 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -46,12 +46,14 @@ int		main(int argc, char *argv[])
 {
   SDL_Surface	*surface;
   t_map		map;
+  t_character	character;
 
   surface = NULL;
   if (argc > 1)
     {
       feed_map(&map, argv[1]);
       surface = sdl_init(&map, surface);
+      set_position(&map, &character, 'i');
       draw_map(&map, surface);
       pause();
       SDL_Quit();
