@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 20:58:06 2014 Jean Gravier
-** Last update Sat Mar  8 13:29:36 2014 Jean Gravier
+** Last update Sat Mar  8 17:48:49 2014 Jean Gravier
 */
 
 #include <stdlib.h>
@@ -19,7 +19,7 @@ void	char_to_sprite(char c, int x, int y, SDL_Surface *surface)
   else if (c == 's')
     draw_image(surface, SPRITE_LADDER, x, y);
   else if (c == 'm')
-    draw_image(surface, SPRITE_MONSTER, x, y);
+    draw_image(surface, SPRITE_VILAIN_LEFT, x, y);
   else if (c == 'o')
     draw_image(surface, SPRITE_OPEN_DOOR, x, y);
   else if (c == 'i')

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 12:17:26 2014 Jean Gravier
-** Last update Sat Mar  8 13:12:40 2014 Jean Gravier
+** Last update Sat Mar  8 17:34:01 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -30,11 +30,45 @@ void		set_position(t_map *map, t_character *character, char char_type)
 	      if (char_type == 'i')
 		character->type = PLAYER;
 	      else if (char_type == 'm')
-		character->type = MONSTER;
+		character->type = VILAIN;
 	    }
 	  ++j;
 	}
       j = 0;
       ++i;
     }
+}
+
+size_t		*set_nposition(t_map *map, t_character *character,
+			     char char_type, size_t *pos)
+{
+  size_t	i;
+  size_t	j;
+
+  i = pos[0];
+  j = pos[1];
+  if (char_type != 'i' && char_type != 'm')
+    exit_error("Invalid type in set_position.");
+  while (i < map->height)
+    {
+      while (j < map->width)
+	{
+	  if (map->map[i][j] == char_type)
+	    {
+	      character->x = j;
+	      character->y = i;
+	      if (char_type == 'i')
+		character->type = PLAYER;
+	      else if (char_type == 'm')
+		character->type = VILAIN;
+	      pos[0] = i + 1;
+	      pos[1] = j + 1;
+	      return (pos);
+	    }
+	  ++j;
+	}
+      j = 0;
+      ++i;
+    }
+  return (pos);
 }

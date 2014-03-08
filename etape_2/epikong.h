@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 16:27:06 2014 Jean Gravier
-** Last update Sat Mar  8 16:27:06 2014 Jean Gravier
+** Last update Sat Mar  8 17:48:35 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -15,7 +15,8 @@
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_WALL "../data/map/wall3.png"
 # define SPRITE_LADDER "../data/map/ladder.png"
-# define SPRITE_MONSTER "../data/characters/mechant1-left.png"
+# define SPRITE_VILAIN_LEFT "../data/characters/mechant1-left.png"
+# define SPRITE_VILAIN_RIGHT "../data/characters/mechant1-right.png"
 # define SPRITE_OPEN_DOOR "../data/map/door-out.png"
 # define SPRITE_CLOSE_DOOR "../data/map/door-enter.png"
 # define SPRITE_PLAYER_LEFT "../data/characters/perso1-left.png"
@@ -32,7 +33,7 @@ typedef enum e_direction
 typedef enum e_type
   {
     PLAYER,
-    MONSTER
+    VILAIN
   }t_type;
 
 typedef struct	s_map
@@ -48,13 +49,13 @@ typedef struct	s_character
   size_t	x;
   size_t	y;
   t_direction	direction;
-  SDL_Surface	surface;
 }		t_character;
 
 typedef struct	s_node
 {
   t_map		*map;
   t_character	*player;
+  size_t	nb_vilains;
   SDL_Surface	*surface;
 }		t_node;
 
@@ -65,6 +66,7 @@ typedef struct	s_node
 void		check_map(t_map *);
 void		feed_map(t_map *, char *);
 char		*correct_line(char *);
+size_t		get_block_nb(t_map *, char);
 
 /*
 ** error.c
@@ -90,18 +92,19 @@ void		draw_map(t_map *, SDL_Surface *);
 */
 
 void		set_position(t_map *, t_character *, char);
+size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 
 /*
 ** ia.c
 */
 
-void		ia_directions(t_node *, t_character **);
+void		move_ia(t_node *, t_character **);
 
 /*
 ** movement.c
 */
 
-int		move_left(t_node *);
-int		move_right(t_node *);
+int		move_left(t_node *, t_character *);
+int		move_right(t_node *, t_character *);
 
 #endif /* !EPIKONG_H_ */

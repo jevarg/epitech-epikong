@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sat Mar  8 16:18:30 2014 Jean Gravier
+** Last update Sat Mar  8 16:57:26 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -22,12 +22,13 @@ size_t		get_block_nb(t_map *map, char block_type)
   i = 0;
   j = 0;
   nb = 0;
-  while (i < map->width)
+  while (i < map->height)
     {
-      while (j < map->height)
+      while (j < map->width)
 	{
 	  if (map->map[i][j] == block_type)
 	    ++nb;
+	  ++j;
 	}
       j = 0;
       ++i;
