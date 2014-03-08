@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sat Mar  8 12:21:21 2014 Jean Gravier
+** Last update Sat Mar  8 13:02:57 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -26,6 +26,8 @@ void		pause()
       else if (SDL_KEYDOWN)
 	if (event.key.keysym.sym == SDLK_ESCAPE)
 	  stop = 1;
+	else if (event.key.keysym.sym == SDLK_LEFT)
+	  move_left();
     }
 }
 

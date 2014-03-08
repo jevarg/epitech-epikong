@@ -5,11 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-<<<<<<< HEAD
-** Last update Sat Mar  8 12:24:10 2014 Jean Gravier
-=======
-** Last update Sat Mar  8 12:20:53 2014 Brieuc de La Fouchardiere
->>>>>>> 299a96adaaf3640d938948200c6772e7f894fabe
+** Last update Sat Mar  8 13:03:20 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
