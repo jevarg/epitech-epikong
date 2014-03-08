@@ -5,7 +5,7 @@
 ## Login   <gravie_j@epitech.net>
 ##
 ## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Sat Mar  8 13:09:11 2014 Jean Gravier
+## Last update Sat Mar  8 13:32:05 2014 Jean Gravier
 ##
 
 CC=		gcc
@@ -20,7 +20,6 @@ SRCS=		main.c \
 		draw_all_sprites.c \
 		character.c \
 		movement.c \
-		vilain.c \
 		map.c \
 		error.c \
 
