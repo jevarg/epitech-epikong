@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 11:50:05 2014 Jean Gravier
+** Last update Sat Mar  8 13:08:38 2014 Brieuc de La Fouchardiere
 */
 
 #ifndef EPIKONG_H_
@@ -22,25 +22,12 @@
 
 # include <SDL/SDL.h>
 
-enum direction_t
-  {
-    LEFT,
-    RIGHT
-  };
-
 typedef struct	s_map
 {
   size_t	width;
   size_t	height;
   char		**map;
 }		t_map;
-
-typedef struct s_player
-{
-  int		x;
-  int		y;
-  direction_t	direction;
-}
 
 /*
 ** map.c

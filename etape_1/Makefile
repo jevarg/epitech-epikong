@@ -5,7 +5,7 @@
 ## Login   <gravie_j@epitech.net>
 ##
 ## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Sat Mar  8 01:21:55 2014 Jean Gravier
+## Last update Sat Mar  8 13:07:44 2014 Brieuc de La Fouchardiere
 ##
 
 CC=		gcc
@@ -23,7 +23,7 @@ SRCS=		main.c \
 
 OBJS=		$(SRCS:.c=.o)
 
-CFLAGS +=	-Wall -Wextra -g3
+CFLAGS +=	-Wall -Wextra
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) -lSDL -lSDL_image

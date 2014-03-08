@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sat Mar  8 13:04:47 2014 Jean Gravier
-** Last update Sat Mar  8 13:29:26 2014 Jean Gravier
+** Started on  Sat Mar  8 13:31:22 2014 Jean Gravier
+** Last update Sat Mar  8 13:31:42 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -93,7 +93,6 @@ void		set_position(t_map *, t_character *, char);
 ** vilain.c
 */
 
-//void		checkIaMovement(t_map *, t_character *, SDL_Surface *);
 
 /*
 ** movement.c
