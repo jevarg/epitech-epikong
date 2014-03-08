@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 12:26:37 2014 Jean Gravier
-** Last update Sat Mar  8 18:40:33 2014 Jean Gravier
+** Last update Sat Mar  8 20:13:43 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -40,12 +40,12 @@ SDL_Surface	*get_old_block(t_node *node, size_t x, size_t y, t_character *charac
     return (get_image(SPRITE_CLOSE_DOOR));
   else if (node->map->map[y][x] == 'o')
     return (get_image(SPRITE_OPEN_DOOR));
-  if (character->type == PLAYER)
+  /*  if (character->type == PLAYER)
     {
-      if (node->map->map[y][x] == 'm')
+      if (character->type == PLAYER)
 	return (get_image(SPRITE_VILAIN_LEFT));
-    }
-  else if (character->type == VILAIN)
+	}*/
+  if (character->type == VILAIN)
     if (character->x == node->player->x
 	&& character->y == node->player->y)
       return (get_image(SPRITE_PLAYER_LEFT));
@@ -57,7 +57,7 @@ int		move_left(t_node *node, t_character *character)
   SDL_Rect	rect;
   SDL_Surface	*old;
 
-  if ((character->x - 1) > 0
+    if ((character->x - 1) > 0
       && valid(node->map, character->x - 1, character->y))
     {
       if (character->type == VILAIN
