@@ -1,11 +1,11 @@
 /*
-** movement.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sat Mar  8 12:26:37 2014 Jean Gravier
-** Last update Sat Mar  8 19:37:57 2014 Fritsch harold
+** movement.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sat Mar  8 20:02:48 2014 Fritsch harold
+** Last update Sat Mar  8 20:02:58 2014 Fritsch harold
 */
 
 #include "epikong.h"

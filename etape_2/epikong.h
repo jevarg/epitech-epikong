@@ -1,11 +1,11 @@
 /*
-** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sat Mar  8 16:27:06 2014 Jean Gravier
-** Last update Sat Mar  8 19:39:27 2014 Fritsch harold
+** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sat Mar  8 20:03:43 2014 Fritsch harold
+** Last update Sat Mar  8 20:03:47 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -55,6 +55,7 @@ typedef struct	s_node
 {
   t_map		*map;
   t_character	*player;
+  t_character	**vilains;
   size_t	nb_vilains;
   SDL_Surface	*surface;
 }		t_node;
@@ -98,7 +99,7 @@ size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 ** ia.c
 */
 
-void		move_ia(t_node *, t_character **);
+void		move_ia(t_node *);
 
 /*
 ** movement.c
