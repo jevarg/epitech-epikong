@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 13:31:22 2014 Jean Gravier
-** Last update Sat Mar  8 13:31:42 2014 Jean Gravier
+** Last update Sat Mar  8 16:07:18 2014 Brieuc de La Fouchardiere
 */
 
 #ifndef EPIKONG_H_
@@ -90,9 +90,10 @@ void		draw_map(t_map *, SDL_Surface *);
 void		set_position(t_map *, t_character *, char);
 
 /*
-** vilain.c
+** ia.c
 */
 
+void		ia_directions(t_node *, t_character **);
 
 /*
 ** movement.c
