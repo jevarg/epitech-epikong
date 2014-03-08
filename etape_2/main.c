@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sat Mar  8 13:03:57 2014 Jean Gravier
-** Last update Sat Mar  8 17:57:37 2014 Jean Gravier
+** Started on  Sat Mar  8 18:16:02 2014 Jean Gravier
+** Last update Sat Mar  8 18:17:15 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -13,6 +13,23 @@
 #include <unistd.h>
 #include "epikong.h"
 
+void		check_keys(t_node *node, Uint8 *keystates, int *stop)
+{
+  if (keystates[SDLK_ESCAPE])
+    *stop = 1;
+  else if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
+    puts("jump left");//jump_left(node);
+  else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])
+    puts("jump right");//jump_right(node);
+  else if (keystates[SDLK_LEFT])
+    move_left(node);
+  else if (keystates[SDLK_RIGHT])
+    move_right(node);
+  else if (keystates[SDLK_UP])
+    puts("up");//move_up(node);
+  else if (keystates[SDLK_DOWN])
+    puts("down");//move_down(node);
+}
 t_character	*get_vilains(t_node *node)
 {
   t_character	*vilains;
@@ -39,23 +56,20 @@ void		sdl_loop(t_node *node, t_character **vilains)
 {
   int		stop;
   SDL_Event	event;
+  Uint8		*keystates;
 
   stop = 0;
+  keystates = SDL_GetKeyState(NULL);
   while (!stop)
     {
+      SDL_PollEvent(&event);
       usleep(100000);
       move_ia(node, vilains);
-      SDL_PollEvent(&event);
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (event.type == SDL_KEYDOWN)
 	{
-	  if (event.key.keysym.sym == SDLK_ESCAPE)
-	    stop = 1;
-	  else if (event.key.keysym.sym == SDLK_LEFT)
-	    move_left(node, node->player);
-	  else if (event.key.keysym.sym == SDLK_RIGHT)
-	    move_right(node, node->player);
+	  check_keys(node, keystates, &stop);
 	}
     }
 }
