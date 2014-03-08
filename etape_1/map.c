@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sat Mar  8 01:18:37 2014 Fritsch harold
+** Last update Sat Mar  8 01:34:25 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -21,25 +21,19 @@ void		check_map(t_map *s)
   s->width = strlen(s->map[0]);
   while (s->map && s->map[i])
     {
-      if ((s->map[i][0] != 'w') || (s->map[i][strlen(s->map[i]) - 1] != 'w'))
-	{
-	  puts("batard");
-	  exit_error(INVALID_MAP_MSG);
-	}
-      else if (strlen(s->map[i]) != s->width)
-	{
-	  printf("s->width : %d\ts->map[%lu] : %s\n", (int)s->width, i, s->map[i]);
-	  puts("de tes morts");
-	  exit_error(INVALID_MAP_MSG);
-	}
+      if (((s->map[i][0] != 'w') || (s->map[i][strlen(s->map[i]) - 1] != 'w'))
+	  || ((strlen(s->map[i]) != s->width)))
+	exit_error(INVALID_MAP_MSG);
       ++i;
     }
 }
 
-void		correct_line(char *line)
+char		*correct_line(char *line)
 {
-  if (line[strlen(line) - 1] == '\n')
-    line[strlen(line) - 1] = '\0';
+  if (line)
+    if (line[strlen(line) - 1] == '\n')
+      line[strlen(line) - 1] = '\0';
+  return (line);
 }
 
 void		feed_map(t_map *s, char *filename)
@@ -63,10 +57,7 @@ void		feed_map(t_map *s, char *filename)
   s->height = count_line;
   count_line = 0;
   while ((read = getline(&line, &len, fp)) != -1)
-    {
-      correct_line(line);
-      s->map[count_line++] = strdup(line);
-    }
+    s->map[count_line++] = strdup(correct_line(line));
   s->map[count_line] = NULL;
   check_map(s);
   free(line);

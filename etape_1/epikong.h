@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 01:55:27 2014 Jean Gravier
+** Last update Sat Mar  8 01:59:00 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -35,7 +35,7 @@ typedef struct	s_map
 
 void		check_map(t_map *);
 void		feed_map(t_map *, char *);
-void		correct_line(char *);
+char		*correct_line(char *);
 
 /*
 ** error.c
