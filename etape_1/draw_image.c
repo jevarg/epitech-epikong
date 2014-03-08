@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 22:30:36 2014 Jean Gravier
-** Last update Fri Mar  7 23:59:58 2014 Jean Gravier
+** Last update Sat Mar  8 01:12:38 2014 Jean Gravier
 */
 
 #include <SDL/SDL.h>
@@ -18,8 +18,8 @@ void		draw_image(SDL_Surface *surface, char *path, int x, int y)
 
   if (!image)
     {
-      fprintf(stderr, "Error, IMG_Load: %s\n", IMG_GetError());
-      return ;
+      fprintf(stderr, "Error, IMG_Load: ");
+      exit_error(IMG_GetError());
     }
   rect.x = x;
   rect.y = y;

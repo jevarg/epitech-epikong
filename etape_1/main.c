@@ -5,11 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-<<<<<<< HEAD
-** Last update Sat Mar  8 00:04:39 2014 Jean Gravier
-=======
-** Last update Fri Mar  7 23:19:06 2014 Fritsch harold
->>>>>>> 7ffc8241d1e7aab73a1a647c0a7c8f3537f06154
+** Last update Sat Mar  8 01:06:39 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -41,7 +37,7 @@ SDL_Surface	*sdl_init(SDL_Surface *surface)
       exit(EXIT_FAILURE);
     }
   surface = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE);
-  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 73, 73, 73));
+  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 125, 125, 125));
   SDL_Flip(surface);
   return (surface);
 }
@@ -55,7 +51,7 @@ int		main(int argc, char *argv[])
   if (argc > 1)
     {
       feed_map(&map, argv[1]);
-      surface = sdl_init(surface);
+      surface = sdl_init(&map, surface);
       draw_map(surface);
       pause();
       SDL_Quit();
