@@ -1,18 +1,18 @@
 /*
-** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_1
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sat Mar  8 12:23:49 2014 Fritsch harold
+** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sat Mar  8 12:25:32 2014 Fritsch harold
+** Last update Sat Mar  8 13:02:55 2014 Fritsch harold
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "epikong.h"
 
-void		pause()
+void		pause(t_character *character, SDL_Surface *surface)
 {
   int		stop;
   SDL_Event	event;
@@ -27,7 +27,10 @@ void		pause()
 	{
 	  if (event.key.keysym.sym == SDLK_ESCAPE)
 	    stop = 1;
-	  else 
+	  else if (event.key.keysym.sym == SDLK_LEFT)
+	    move_left(character, surface);
+	  else if (event.key.keysym.sym == SDLK_RIGHT)
+	    ;
 	}
     }
 }
@@ -45,18 +48,30 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
   return (surface);
 }
 
+void		init(t_node *s, t_map *map, t_character *c, SDL_Surface *sur)
+{
+  s->map = map;
+  s->character = c;
+  s->surface  = sur;
+}
+
 int		main(int argc, char *argv[])
 {
   SDL_Surface	*surface;
   t_map		map;
-
+  t_character	character;
+  t_node	s;
+  
   surface = NULL;
   if (argc > 1)
     {
-      feed_map(&map, argv[1]);
-      surface = sdl_init(&map, surface);
-      draw_map(&map, surface);
-      pause();
+      init(&s, &map, &character, surface);
+      feed_map(s.map, argv[1]);
+      s.surface = sdl_init(s.map, s.surface);
+      SDL_WM_SETCAPTION("Super Expendablos Deluxe edifion", NULL);
+      set_position(s.map, s.character, 'i');
+      draw_map(s.map, s.surface);
+      pause(s.character, s.surface);
       SDL_Quit();
     }
   return (0);
