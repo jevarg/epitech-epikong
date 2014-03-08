@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sat Mar  8 01:54:42 2014 Jean Gravier
+** Last update Sat Mar  8 12:23:49 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -24,8 +24,11 @@ void		pause()
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (SDL_KEYDOWN)
-	if (event.key.keysym.sym == SDLK_ESCAPE)
-	  stop = 1;
+	{
+	  if (event.key.keysym.sym == SDLK_ESCAPE)
+	    stop = 1;
+	  else 
+	}
     }
 }
 
