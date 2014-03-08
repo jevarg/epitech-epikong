@@ -5,7 +5,11 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 12:21:59 2014 Jean Gravier
+<<<<<<< HEAD
+** Last update Sat Mar  8 12:24:10 2014 Jean Gravier
+=======
+** Last update Sat Mar  8 12:20:53 2014 Brieuc de La Fouchardiere
+>>>>>>> 299a96adaaf3640d938948200c6772e7f894fabe
 */
 
 #ifndef EPIKONG_H_
@@ -80,5 +84,11 @@ void		draw_map(t_map *, SDL_Surface *);
 */
 
 void		set_position(t_map *map, t_character *character, char char_type)
+
+/*
+** vilain.c
+*/
+
+void		checkIaMovement(t_map *, t_character *, SDL_Surface *);
 
 #endif /* !EPIKONG_H_ */
