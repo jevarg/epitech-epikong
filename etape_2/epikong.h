@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 16:27:06 2014 Jean Gravier
-** Last update Sat Mar  8 19:20:53 2014 Jean Gravier
+** Last update Sat Mar  8 20:03:57 2014 Brieuc de La Fouchardiere
 */
 
 #ifndef EPIKONG_H_
@@ -13,14 +13,14 @@
 # define BLOCK_SIZE 30
 
 # define INVALID_MAP_MSG "Invalid map"
-# define SPRITE_WALL "../data/map/wall3.png"
-# define SPRITE_LADDER "../data/map/ladder.png"
-# define SPRITE_VILAIN_LEFT "../data/characters/mechant1-left.png"
-# define SPRITE_VILAIN_RIGHT "../data/characters/mechant1-right.png"
-# define SPRITE_OPEN_DOOR "../data/map/door-out.png"
-# define SPRITE_CLOSE_DOOR "../data/map/door-enter.png"
-# define SPRITE_PLAYER_LEFT "../data/characters/perso1-left.png"
-# define SPRITE_PLAYER_RIGHT "../data/characters/perso1-right.png"
+# define SPRITE_WALL "../data/map/world/wall4.png"
+# define SPRITE_LADDER "../data/map/world/ladder.png"
+# define SPRITE_VILAIN_LEFT "../data/characters/vilain2/mechant2-left.png"
+# define SPRITE_VILAIN_RIGHT "../data/characters/vilain2/mechant2-right.png"
+# define SPRITE_OPEN_DOOR "../data/map/world/car-out.png"
+# define SPRITE_CLOSE_DOOR "../data/map/world/in-helicrash.png"
+# define SPRITE_PLAYER_LEFT "../data/characters/perso3/perso3-left.png"
+# define SPRITE_PLAYER_RIGHT "../data/characters/perso3/perso3-right.png"
 
 # include <SDL/SDL.h>
 
