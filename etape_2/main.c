@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sat Mar  8 18:16:02 2014 Jean Gravier
-** Last update Sat Mar  8 20:17:52 2014 Jean Gravier
+** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
+** Last update Sat Mar  8 20:52:41 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -18,17 +18,17 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   if (keystates[SDLK_ESCAPE])
     *stop = 1;
   else if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
-    puts("jump left");//jump_left(node);
+    jump_left(node);
   else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])
-    puts("jump right");//jump_right(node);
+    jump_right(node);
   else if (keystates[SDLK_LEFT])
     move_left(node, node->player);
   else if (keystates[SDLK_RIGHT])
     move_right(node, node->player);
   else if (keystates[SDLK_UP])
-    move_up(node, node->player);
+    jump(node);
   else if (keystates[SDLK_DOWN])
-    move_down(node, node->player);
+    ;//move_down(node, node->player);
 }
 
 void		get_vilains(t_node *node)
@@ -64,7 +64,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(10000);
+      usleep(25000);
       move_ia(node);
       if (event.type == SDL_QUIT)
 	stop = 1;

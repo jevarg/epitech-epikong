@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sat Mar  8 12:26:37 2014 Jean Gravier
-** Last update Sat Mar  8 20:13:43 2014 Jean Gravier
+** Started on  Sat Mar  8 20:52:30 2014 Jean Gravier
+** Last update Sat Mar  8 20:52:30 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -75,6 +75,7 @@ int		move_left(t_node *node, t_character *character)
 	draw_image(node->surface, SPRITE_PLAYER_LEFT, character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
       if (character->type == VILAIN)
 	draw_image(node->surface, SPRITE_VILAIN_LEFT, character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
+      fall(node);
       return (1);
     }
   return (0);
@@ -103,6 +104,7 @@ int		move_right(t_node *node, t_character *character)
 	draw_image(node->surface, SPRITE_PLAYER_RIGHT, character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
       else if (character->type == VILAIN)
 	draw_image(node->surface, SPRITE_VILAIN_RIGHT, character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
+      fall(node);
       return (1);
     }
   return (0);

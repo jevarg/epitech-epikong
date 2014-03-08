@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 21:39:40 2014 Fritsch harold
-** Last update Sat Mar  8 13:08:38 2014 Brieuc de La Fouchardiere
+** Last update Sat Mar  8 20:00:47 2014 Brieuc de La Fouchardiere
 */
 
 #ifndef EPIKONG_H_
@@ -13,12 +13,12 @@
 # define BLOCK_SIZE 30
 
 # define INVALID_MAP_MSG "Invalid map"
-# define SPRITE_WALL "../data/map/wall3.png"
-# define SPRITE_LADDER "../data/map/ladder.png"
-# define SPRITE_MONSTER "../data/characters/mechant1-left.png"
-# define SPRITE_OPEN_DOOR "../data/map/door-out.png"
-# define SPRITE_CLOSE_DOOR "../data/map/door-enter.png"
-# define SPRITE_PLAYER "../data/characters/perso1-left.png"
+# define SPRITE_WALL "../data/map/world/wall4.png"
+# define SPRITE_LADDER "../data/map/world/ladder.png"
+# define SPRITE_MONSTER "../data/characters/vilain1/mechant1-left.png"
+# define SPRITE_OPEN_DOOR "../data/map/world/car-out.png"
+# define SPRITE_CLOSE_DOOR "../data/map/world/in-helicrash.png"
+# define SPRITE_PLAYER "../data/characters/perso1/perso1-left.png"
 
 # include <SDL/SDL.h>
 

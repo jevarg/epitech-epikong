@@ -5,7 +5,7 @@
 ## Login   <gravie_j@epitech.net>
 ##
 ## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Sat Mar  8 16:47:37 2014 Jean Gravier
+## Last update Sat Mar  8 19:00:13 2014 Fritsch harold
 ##
 
 CC=		gcc
@@ -23,6 +23,7 @@ SRCS=		main.c \
 		ia.c \
 		map.c \
 		error.c \
+		air.c \
 
 OBJS=		$(SRCS:.c=.o)
 
