@@ -1,17 +1,39 @@
 /*
 ** map.c for  in /home/fritsc_h/projets/T2Rush1/etape_1
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sat Mar  8 01:34:25 2014 Fritsch harold
+** Last update Sat Mar  8 16:18:30 2014 Jean Gravier
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "epikong.h"
+
+size_t		get_block_nb(t_map *map, char block_type)
+{
+  size_t	i;
+  size_t	j;
+  size_t	nb;
+
+  i = 0;
+  j = 0;
+  nb = 0;
+  while (i < map->width)
+    {
+      while (j < map->height)
+	{
+	  if (map->map[i][j] == block_type)
+	    ++nb;
+	}
+      j = 0;
+      ++i;
+    }
+  return (nb);
+}
 
 void		check_map(t_map *s)
 {

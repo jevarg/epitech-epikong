@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 13:31:22 2014 Jean Gravier
-** Last update Sat Mar  8 13:31:42 2014 Jean Gravier
+** Last update Sat Mar  8 15:56:43 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -48,12 +48,13 @@ typedef struct	s_character
   size_t	x;
   size_t	y;
   t_direction	direction;
+  SDL_Surface	surface;
 }		t_character;
 
 typedef struct	s_node
 {
   t_map		*map;
-  t_character	*character;
+  t_character	*player;
   SDL_Surface	*surface;
 }		t_node;
 
@@ -76,6 +77,7 @@ void		exit_error(char *);
 */
 
 void		draw_image(SDL_Surface *, char *, int, int);
+SDL_Surface	*get_image(char *);
 
 /*
 ** draw_map.c
@@ -98,7 +100,7 @@ void		set_position(t_map *, t_character *, char);
 ** movement.c
 */
 
-void		move_left(t_node *);
-void		move_right(t_node *);
+int		move_left(t_node *);
+int		move_right(t_node *);
 
 #endif /* !EPIKONG_H_ */
