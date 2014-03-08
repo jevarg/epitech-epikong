@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sat Mar  8 18:36:57 2014 Fritsch harold
-** Last update Sat Mar  8 20:00:50 2014 Fritsch harold
+** Last update Sat Mar  8 20:40:04 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -53,17 +53,34 @@ void		fall(t_node *node)
     {
       if (i == 1)
 	{
-	  usleep(25000);
+	  usleep(FALL_SPEED);
+	  move_down(node, node->player);
+	  usleep(FALL_SPEED / 2);
 	  move_down(node, node->player);
 	  i = 2;
 	}
       speed = 0;
       while (speed < (i * i))
 	{
-	  usleep(250000 / (i * i));
+	  usleep(FALL_SPEED / (i * i));
 	  move_down(node, node->player);
 	  ++speed;
 	}
       ++i;
+    }
+}
+
+void		jump(t_node *node)
+{
+  if (!is_walkable(node->map, node->player->x, node->player->y - 1))
+    {
+      move_up(node, node->player);
+      usleep(FALL_SPEED);
+      if (!is_walkable(node->map, node->player->x, node->player->y - 1))
+	{
+	  move_up(node, node->player);
+	  usleep(FALL_SPEED);
+	}
+      fall(node);
     }
 }

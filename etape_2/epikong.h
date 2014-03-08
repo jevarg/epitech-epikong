@@ -5,12 +5,13 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sat Mar  8 20:03:43 2014 Fritsch harold
-** Last update Sat Mar  8 20:03:47 2014 Fritsch harold
+** Last update Sat Mar  8 20:27:31 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
 # define BLOCK_SIZE 30
+# define FALL_SPEED 50000
 
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_WALL "../data/map/wall3.png"

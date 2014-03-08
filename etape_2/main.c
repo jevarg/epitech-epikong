@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sat Mar  8 20:03:34 2014 Fritsch harold
-** Last update Sat Mar  8 20:03:37 2014 Fritsch harold
+** Last update Sat Mar  8 20:31:42 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -26,7 +26,7 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop)
   else if (keystates[SDLK_RIGHT])
     move_right(node, node->player);
   else if (keystates[SDLK_UP])
-    ;//move_up(node, node->player);
+    jump(node);
   else if (keystates[SDLK_DOWN])
     ;//move_down(node, node->player);
 }
@@ -64,7 +64,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(10000);
+      usleep(25000);
       move_ia(node);
       if (event.type == SDL_QUIT)
 	stop = 1;

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 22:30:36 2014 Jean Gravier
-** Last update Sat Mar  8 18:25:02 2014 Jean Gravier
+** Last update Sat Mar  8 20:38:18 2014 Fritsch harold
 */
 
 #include <SDL/SDL_image.h>
@@ -41,5 +41,6 @@ void		draw_image(SDL_Surface *surface, char *path, int x, int y)
   rect.h = 0;
   SDL_BlitSurface(image, NULL, surface, &rect);
   SDL_UpdateRect(surface, x, y, image->w, image->h);
+  SDL_Flip(surface);
   SDL_FreeSurface(image);
 }
