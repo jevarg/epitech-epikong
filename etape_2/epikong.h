@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:57 2014 Jean Gravier
-** Last update Sat Mar  8 20:53:07 2014 Jean Gravier
+** Last update Sat Mar  8 20:56:17 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -16,8 +16,8 @@
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_WALL "../data/map/world/wall4.png"
 # define SPRITE_LADDER "../data/map/world/ladder.png"
-# define SPRITE_VILAIN_LEFT "../data/characters/vilain2/mechant2-left.png"
-# define SPRITE_VILAIN_RIGHT "../data/characters/vilain2/mechant2-right.png"
+# define SPRITE_VILAIN_LEFT "../data/characters/vilain1/mechant1-left.png"
+# define SPRITE_VILAIN_RIGHT "../data/characters/vilain1/mechant1-right.png"
 # define SPRITE_OPEN_DOOR "../data/map/world/car-out.png"
 # define SPRITE_CLOSE_DOOR "../data/map/world/in-helicrash.png"
 # define SPRITE_PLAYER_LEFT "../data/characters/perso3/perso3-left.png"
