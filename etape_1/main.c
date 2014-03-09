@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sun Mar  9 00:18:37 2014 Brieuc de La Fouchardiere
+** Last update Sun Mar  9 02:05:34 2014 Brieuc de La Fouchardiere
 */
 
 #include <stdio.h>
@@ -31,22 +31,13 @@ void		pause()
 
 SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 {
-  SDL_Surface	*background;
-  SDL_Rect	rect;
-
-  background = get_image("../data/contents/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
     }
   surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height * BLOCK_SIZE, 32, SDL_HWSURFACE);
-  rect.x = 0;
-  rect.y = 0;
-  rect.w = surface->w;
-  rect.h = surface->h;
-  //SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
-  SDL_BlitSurface(background, NULL, surface, &rect);
+  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
   SDL_Flip(surface);
   return (surface);
 }
