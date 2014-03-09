@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sun Mar  9 01:31:53 2014 Jean Gravier
-** Last update Sun Mar  9 02:42:35 2014 Jean Gravier
+** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
+** Last update Sun Mar  9 14:38:25 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -88,6 +88,7 @@ void		exit_error(char *);
 
 void		draw_image(SDL_Surface *, char *, int, int);
 SDL_Surface	*get_image(char *);
+void		blit_part(SDL_Surface *, SDL_Rect *, char *);
 
 /*
 ** draw_map.c
@@ -144,5 +145,6 @@ void		fall(t_node *);
 
 int		ladder_up(t_node *);
 void		ladder_down(t_node *);
+char		landing(t_node *);
 
 #endif /* !EPIKONG_H_ */

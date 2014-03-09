@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 01:31:11 2014 Jean Gravier
-** Last update Sun Mar  9 02:08:22 2014 Jean Gravier
+** Last update Sun Mar  9 14:51:58 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -47,24 +47,18 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(50000);
+      usleep(25000);
       move_ia(node);
       fall(node);
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (event.type == SDL_KEYDOWN)
-	{
-	  check_keys(node, keystates, &stop);
-	}
+	check_keys(node, keystates, &stop);
     }
 }
 
 SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 {
-  SDL_Surface	*background;
-  SDL_Rect	rect;
-
-  background = get_image("../data/contents/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
@@ -72,13 +66,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
     }
   surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height *
 			     BLOCK_SIZE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  rect.x = 0;
-  rect.y = 0;
-  rect.w = surface->w;
-  rect.h = surface->h;
-  //  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
-  SDL_BlitSurface(background, NULL, surface, &rect);
-  SDL_Flip(surface);
+  draw_image(surface, "../data/contents/backgrounds/bg1.png", 0, 0);
   SDL_WM_SetCaption("Super Expendablos Deluxe Edifion", NULL);
   return (surface);
 }
@@ -99,15 +87,15 @@ int		main()
   t_node	s;
 
   surface = NULL;
-  //menu(surface, &map);
-  init(&s, &map, &player, surface);
+  menu(surface, &map);
+  /*init(&s, &map, &player, surface);
   feed_map(s.map, "../data/contents/map/map5.map");
   set_position(s.map, s.player, 'i');
   s.nb_vilains = get_block_nb(s.map, 'm');
   s.surface = sdl_init(s.map, s.surface);
   draw_map(s.map, s.surface);
   get_vilains(&s);
-  sdl_loop(&s);
+  sdl_loop(&s);*/
   SDL_Quit();
   return (0);
 }

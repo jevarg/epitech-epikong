@@ -1,11 +1,11 @@
 /*
-** air.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 01:32:32 2014 Jean Gravier
-** Last update Sun Mar  9 01:32:32 2014 Jean Gravier
+** air.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 01:55:49 2014 Fritsch harold
+** Last update Sun Mar  9 01:55:50 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -58,11 +58,11 @@ void		jump_right(t_node *node)
 char		first_cell_fall(t_node *node)
 {
   usleep(FALL_SPEED);
-  if (!move_down(node, node->player))
+  if (landing(node) == 0)
     return (1);
   move_ia(node);
   usleep(FALL_SPEED / 2);
-  if (!move_down(node, node->player))
+  if (landing(node) == 0)
     return (1);
   return (0);
 }
@@ -86,7 +86,7 @@ void		fall(t_node *node)
       while (speed < (i * i))
 	{
 	  usleep(FALL_SPEED / (i * i));
-	  if (!move_down(node, node->player))
+	  if (landing(node) == 0)
 	    return ;
 	  ++speed;
 	}
