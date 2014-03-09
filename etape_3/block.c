@@ -1,11 +1,11 @@
 /*
-** block.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 22:35:38 2014 Jean Gravier
-** Last update Sun Mar  9 22:35:39 2014 Jean Gravier
+** block.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 22:36:37 2014 Fritsch harold
+** Last update Sun Mar  9 22:36:38 2014 Fritsch harold
 */
 
 #include "epikong.h"

@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sun Mar  9 22:34:53 2014 Jean Gravier
-** Last update Sun Mar  9 23:10:47 2014 Jean Gravier
+** Started on  Sun Mar  9 23:11:29 2014 Jean Gravier
+** Last update Sun Mar  9 23:11:29 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -30,11 +30,20 @@
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
 # define SPRITE_WIN "../data/contents/backgrounds/win.png"
+
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
 # define KEY (1)
 # define GAME (0)
+
+# define U SDLK_UP
+# define D SDLK_DOWN
+# define R SDLK_RIGHT
+# define L SDLK_LEFT
+# define E SDLK_RETURN
+# define Q SDLK_ESCAPE
+# define P SDL_KEYDOWN
 
 # include <SDL/SDL.h>
 # include <SDL/SDL_mixer.h>
@@ -125,6 +134,7 @@ void		draw_stuff(t_node *);
 ** ia.c
 */
 
+void		ia_cycle(t_node *, int *);
 void		move_ia(t_node *);
 
 /*

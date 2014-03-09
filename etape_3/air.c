@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 01:55:49 2014 Fritsch harold
-** Last update Sun Mar  9 21:15:24 2014 Fritsch harold
+** Last update Sun Mar  9 22:31:43 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -74,7 +74,8 @@ void		fall(t_node *node)
 
   i = 2;
   speed = 2;
-  while (!is_walkable(node->map, node->player->x, node->player->y + 1) && (i != -1))
+  while (!is_walkable(node->map, node->player->x, node->player->y + 1)
+	 && (i != -1))
     {
       if (speed == 2)
 	if (first_cell_fall(node))
