@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:08:40 2014 Fritsch harold
-** Last update Sun Mar  9 22:28:12 2014 Fritsch harold
+** Last update Sun Mar  9 22:33:30 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -35,7 +35,6 @@
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
 # define KEY (1)
 # define GAME (0)
-
 
 # include <SDL/SDL.h>
 # include <SDL/SDL_mixer.h>

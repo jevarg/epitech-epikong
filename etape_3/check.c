@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
-** Last update Sun Mar  9 22:09:25 2014 Fritsch harold
+** Last update Sun Mar  9 22:32:51 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -52,7 +52,8 @@ void		check_jump(t_node *node)
     jump(node);
 }
 
-void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
+void		check_keys(t_node *node, Uint8 *keystates,
+			   int *stop, SDL_Event *event)
 {
   void		(*func_tab[SDLK_LEFT + 1])(t_node *);
   int		(*func_tab2[SDLK_LEFT + 1])(t_node *, t_character *);
@@ -62,7 +63,6 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
   func_tab[SDLK_UP] = &check_jump;
   func_tab[SDLK_DOWN] = &ladder_down;
   func_tab[SDLK_RETURN] = &get_key;
-
   if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
     jump_left(node);
   else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])

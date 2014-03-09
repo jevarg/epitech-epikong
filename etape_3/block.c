@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:12:34 2014 Jean Gravier
-** Last update Sun Mar  9 22:28:37 2014 Fritsch harold
+** Last update Sun Mar  9 22:31:54 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -32,5 +32,4 @@ void		check_current_block(t_node *node)
       ++i;
     }
   draw_stuff(node);
-  //printf ("life: %d\n", node->player->life);
 }
