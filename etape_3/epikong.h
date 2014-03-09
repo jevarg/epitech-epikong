@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 21:21:40 2014 Jean Gravier
+** Last update Sun Mar  9 21:52:39 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -120,7 +120,7 @@ void		draw_map(t_map *, SDL_Surface *);
 void		set_position(t_map *, t_character *, char);
 size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 void		set_char_type(t_character *, char, int, int);
-
+void		draw_stuff(t_node *);
 /*
 ** ia.c
 */
@@ -175,6 +175,7 @@ void		menu(SDL_Surface *, t_map *);
 */
 
 void		check_fall_dead(t_node *, int);
+void		player_die(t_node *);
 
 /*
 ** block.c
