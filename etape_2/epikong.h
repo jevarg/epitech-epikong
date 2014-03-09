@@ -5,13 +5,14 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 14:38:25 2014 Jean Gravier
+** Last update Sun Mar  9 19:04:40 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
 # define BLOCK_SIZE 30
 # define FALL_SPEED 50000
+# define MENU_SPEED 45
 # define TRUE 1
 # define FALSE 0
 
@@ -87,6 +88,8 @@ void		exit_error(char *);
 */
 
 void		draw_image(SDL_Surface *, char *, int, int);
+void		draw_image_menu_part(SDL_Surface *, char *, int, int);
+void		draw_image_only(SDL_Surface *, char *, int, int);
 SDL_Surface	*get_image(char *);
 void		blit_part(SDL_Surface *, SDL_Rect *, char *);
 

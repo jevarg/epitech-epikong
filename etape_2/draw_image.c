@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:53:23 2014 Jean Gravier
-** Last update Sun Mar  9 14:41:44 2014 Jean Gravier
+** Last update Sun Mar  9 18:47:15 2014 Jean Gravier
 */
 
 #include <SDL/SDL_image.h>
@@ -51,5 +51,50 @@ void		draw_image(SDL_Surface *surface, char *path, int x, int y)
   SDL_BlitSurface(image, NULL, surface, &rect);
   SDL_UpdateRect(surface, x, y, image->w, image->h);
   SDL_Flip(surface);
+  SDL_FreeSurface(image);
+}
+
+void		draw_image_only(SDL_Surface *surface, char *path, int x, int y)
+{
+  SDL_Surface	*image;
+  SDL_Rect	rect;
+
+  image = IMG_Load(path);
+  if (!image)
+    {
+      fprintf(stderr, "Error, IMG_Load: ");
+      exit_error(IMG_GetError());
+    }
+  rect.x = x;
+  rect.y = y;
+  rect.w = 0;
+  rect.h = 0;
+  SDL_BlitSurface(image, NULL, surface, &rect);
+  //SDL_UpdateRect(surface, x, y, image->w, image->h);
+  SDL_FreeSurface(image);
+}
+
+void		draw_image_menu_part(SDL_Surface *surface, char *path, int x, int y)
+{
+  SDL_Surface	*image;
+  SDL_Rect	rect;
+  SDL_Rect	srcrect;
+
+  image = IMG_Load(path);
+  if (!image)
+    {
+      fprintf(stderr, "Error, IMG_Load: ");
+      exit_error(IMG_GetError());
+    }
+  rect.x = x;
+  rect.y = y;
+  rect.w = 0;
+  rect.h = 0;
+  srcrect.x = srcrect.x * -1;
+  srcrect.y = 0;
+  if ((srcrect.w = x - 500) < 0)
+    srcrect.w = srcrect.w * -1;
+  srcrect.h = 350;
+  SDL_BlitSurface(image, &srcrect, surface, &rect);
   SDL_FreeSurface(image);
 }

@@ -5,13 +5,25 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sat Mar  8 16:57:26 2014 Jean Gravier
+** Last update Sun Mar  9 19:00:11 2014 Jean Gravier
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "epikong.h"
+
+void		set_map(t_map *map, int *select)
+{
+  char		*maps[5];
+
+  maps[0] = "../data/contents/map/map1.map";
+  maps[1] = "../data/contents/map/map2.map";
+  maps[2] = "../data/contents/map/map3.map";
+  maps[3] = "../data/contents/map/map3.map";
+  maps[4] = "../data/contents/map/map4.map";
+  map->path = maps[*select];
+}
 
 size_t		get_block_nb(t_map *map, char block_type)
 {

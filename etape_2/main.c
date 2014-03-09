@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 16:10:45 2014 Jean Gravier
+** Last update Sun Mar  9 18:54:36 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -88,14 +88,14 @@ int		main()
 
   surface = NULL;
   menu(surface, &map);
-  /*init(&s, &map, &player, surface);
-  feed_map(s.map, "../data/contents/map/map5.map");
+  init(&s, &map, &player, surface);
+  feed_map(s.map, s.map->path);
   set_position(s.map, s.player, 'i');
   s.nb_vilains = get_block_nb(s.map, 'm');
   s.surface = sdl_init(s.map, s.surface);
   draw_map(s.map, s.surface);
   get_vilains(&s);
-  sdl_loop(&s);*/
+  sdl_loop(&s);
   SDL_Quit();
   return (0);
 }
