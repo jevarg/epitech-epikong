@@ -1,11 +1,11 @@
 /*
-** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 21:34:12 2014 Fritsch harold
+** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 22:08:40 2014 Fritsch harold
+** Last update Sun Mar  9 22:08:53 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -30,10 +30,10 @@
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
 
-# define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
+# define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
-# define MENU (1)
+# define KEY (1)
 # define GAME (0)
 
 
@@ -57,14 +57,18 @@ typedef struct	s_map
   size_t	width;
   size_t	height;
   char		*path;
-  char		*bg_path;
   char		**map;
 }		t_map;
 
 typedef struct	s_character
 {
+<<<<<<< HEAD
   int		key;
   int		live;
+=======
+  int		life;
+  int		key;
+>>>>>>> 0c97f300b6967fd3d77faa33ec2b566269b265a9
   t_type	type;
   size_t	x;
   size_t	y;
@@ -74,12 +78,13 @@ typedef struct	s_character
 
 typedef struct	s_node
 {
-  Mix_Music	*musique[2];
+  Mix_Music	*sounds[2];
   t_map		*map;
   t_character	*player;
   t_character	**vilains;
   size_t	nb_vilains;
   SDL_Surface	*surface;
+  int		stop;
 }		t_node;
 
 /*
@@ -121,7 +126,7 @@ void		draw_map(t_map *, SDL_Surface *);
 void		set_position(t_map *, t_character *, char);
 size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 void		set_char_type(t_character *, char, int, int);
-
+void		draw_stuff(t_node *);
 /*
 ** ia.c
 */
@@ -176,11 +181,21 @@ void		menu(SDL_Surface *, t_map *);
 */
 
 void		check_fall_dead(t_node *, int);
+<<<<<<< HEAD
 
 /*
 ** key.c
 */
 
 void		get_key(t_node *);
+=======
+void		player_die(t_node *);
+
+/*
+** block.c
+*/
+
+void		check_current_block(t_node *);
+>>>>>>> 0c97f300b6967fd3d77faa33ec2b566269b265a9
 
 #endif /* !EPIKONG_H_ */

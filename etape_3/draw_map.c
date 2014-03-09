@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 20:58:06 2014 Jean Gravier
-** Last update Sun Mar  9 19:55:28 2014 Brieuc de La Fouchardiere
+** Last update Sun Mar  9 21:40:56 2014 Jean Gravier
 */
 
 #include <stdlib.h>
@@ -48,4 +48,7 @@ void		draw_map(t_map *map, SDL_Surface *surface)
       j = 0;
       ++i;
     }
+  draw_image(surface, SPRITE_PLAYER_LIFE, BLOCK_SIZE * 2, 0);
+  draw_image(surface, SPRITE_PLAYER_LIFE, BLOCK_SIZE * 3, 0);
+  draw_image(surface, SPRITE_PLAYER_LIFE, BLOCK_SIZE * 4, 0);
 }

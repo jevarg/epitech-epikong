@@ -1,11 +1,11 @@
 /*
-** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 21:34:52 2014 Fritsch harold
+** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 22:08:29 2014 Fritsch harold
+** Last update Sun Mar  9 22:08:33 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -39,32 +39,31 @@ void		get_vilains(t_node *node)
 void		sdl_loop(t_node *node)
 {
   int		i;
-  int		stop;
   SDL_Event	event;
   Uint8		*keystates;
   int		k;
 
-  stop = 0;
   keystates = SDL_GetKeyState(NULL);
-  while (!stop)
+  while (!node->stop)
     {
       i = -1;
-      while (++i < 4)
+      while (++i < 4 && !node->stop)
 	move_ia(node);
-      while (i > 0 && !stop)
+      while (i > 0 && !node->stop)
 	{
 	  SDL_WaitEvent(&event);
 	  usleep(25000);
 	  fall(node);
-	  if (event.type == SDL_QUIT)
-	    stop = 1;
+       	  if (event.type == SDL_QUIT)
+	    node->stop = 1;
 	  else if ((event.type == SDL_KEYDOWN) &&
 		   (((k = event.key.keysym.sym) == SDLK_UP) ||
 		    (k == SDLK_DOWN) || (k == SDLK_LEFT) ||
 		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE) ||
 		    (k == SDLK_RETURN)))
 	    {
-	      check_keys(node, keystates, &stop, &event);
+	      check_current_block(node);
+	      check_keys(node, keystates, &node->stop, &event);
 	      --i;
 	    }
 	}
@@ -87,11 +86,15 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 
 void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
 {
+  s->stop = 0;
   s->map = map;
   p->in_air = FALSE;
+  p->key = FALSE;
   s->player = p;
+  s->player->life = 3;
   s->surface  = sur;
-  s->musique[GAME] = Mix_LoadMUS(SOUND_GAME);
+  s->sounds[GAME] = Mix_LoadMUS(SOUND_GAME);
+  s->sounds[KEY] = Mix_LoadMUS(SOUND_KEY);
 }
 
 int		main()
@@ -112,9 +115,10 @@ int		main()
   s.surface = sdl_init(s.map, s.surface);
   draw_map(s.map, s.surface);
   get_vilains(&s);
-  Mix_PlayMusic(s.musique[GAME], -1);
+  Mix_PlayMusic(s.sounds[GAME], -1);
   sdl_loop(&s);
-  Mix_FreeMusic(s.musique[GAME]);
+  Mix_FreeMusic(s.sounds[GAME]);
+  Mix_FreeMusic(s.sounds[KEY]);
   Mix_CloseAudio();
   SDL_Quit();
   return (0);

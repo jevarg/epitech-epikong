@@ -5,15 +5,21 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Sun Mar  9 14:42:51 2014 Fritsch harold
-** Last update Sun Mar  9 20:07:18 2014 Jean Gravier
+** Last update Sun Mar  9 21:51:05 2014 Jean Gravier
 */
 
 #include "epikong.h"
 
+void	player_die(t_node *node)
+{
+  draw_image(node->surface, SPRITE_GAMEOVER, 0, 0);
+  node->stop = 2;
+}
+
 void	dead(t_node *node)
 {
-  puts("mort");
-  node->player->live = 0;
+  node->player->life = 0;
+  player_die(node);
 }
 
 void	check_fall_dead(t_node *node, int fall_height)

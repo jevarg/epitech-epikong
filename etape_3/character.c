@@ -5,10 +5,30 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 12:17:26 2014 Jean Gravier
-** Last update Sun Mar  9 01:04:00 2014 Fritsch harold
+** Last update Sun Mar  9 21:51:49 2014 Jean Gravier
 */
 
 #include "epikong.h"
+
+void		draw_stuff(t_node *node)
+{
+  int		i;
+
+  i = 1;
+  if (!node->stop)
+    {
+      if (node->player->key)
+	draw_image(node->surface, SPRITE_KEY_CAR, BLOCK_SIZE, 0);
+      while (i <= 3)
+	{
+	  if (i <= node->player->life)
+	    draw_image(node->surface, SPRITE_PLAYER_LIFE, BLOCK_SIZE * (i + 1), 0);
+	  else
+	    draw_image(node->surface, SPRITE_WALL, BLOCK_SIZE * (i + 1), 0);
+	  ++i;
+	}
+    }
+}
 
 size_t		*get_position(t_map *map, char type)
 {

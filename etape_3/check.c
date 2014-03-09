@@ -1,11 +1,11 @@
 /*
-** check.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** check.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
 ** 
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
 ** 
-** Started on  Sat Mar  8 23:32:23 2014 Fritsch harold
-** Last update Sun Mar  9 21:40:47 2014 Fritsch harold
+** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
+** Last update Sun Mar  9 22:09:25 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -57,7 +57,6 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
   void		(*func_tab[SDLK_LEFT + 1])(t_node *);
   int		(*func_tab2[SDLK_LEFT + 1])(t_node *, t_character *);
 
-  printf("%d\n", SDLK_RETURN);
   func_tab2[SDLK_LEFT] = &move_left;
   func_tab2[SDLK_RIGHT] = &move_right;
   func_tab[SDLK_UP] = &check_jump;
