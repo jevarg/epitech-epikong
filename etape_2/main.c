@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 01:18:17 2014 Fritsch harold
-** Last update Sun Mar  9 01:18:21 2014 Fritsch harold
+** Last update Sun Mar  9 01:29:18 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(100000);
+      usleep(25000);
       move_ia(node);
       fall(node);
       if (event.type == SDL_QUIT)
@@ -64,7 +64,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
   SDL_Surface	*background;
   SDL_Rect	rect;
 
-  background = get_image("../data/map/backgrounds/bg1.png");
+  background = get_image("../data/contents/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());

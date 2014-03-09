@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:30 2014 Jean Gravier
-** Last update Sun Mar  9 01:15:22 2014 Fritsch harold
+** Last update Sun Mar  9 01:27:30 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -32,8 +32,9 @@ int		move_left(t_node *node, t_character *character)
       fill_rect(character, &rect);
       SDL_FillRect(node->surface, &rect, SDL_MapRGB(node->surface->format,
 						    40, 40, 40));
-      if ((old = get_old_block(node, character->x--, character->y, character)))
+      if ((old = get_old_block(node, character->x, character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
+      character->x -= 1;
       if (character->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_LEFT,
 		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
@@ -61,8 +62,9 @@ int		move_right(t_node *node, t_character *character)
       fill_rect(character, &rect);
       SDL_FillRect(node->surface, &rect,
 		   SDL_MapRGB(node->surface->format, 40, 40, 40));
-      if ((old = get_old_block(node, character->x++, character->y, character)))
+      if ((old = get_old_block(node, character->x, character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
+      character->x += 1;
       if (character->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_RIGHT,
 		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
