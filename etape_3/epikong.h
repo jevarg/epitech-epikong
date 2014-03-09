@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 19:18:44 2014 Jean Gravier
+** Last update Sun Mar  9 19:49:22 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -59,6 +59,7 @@ typedef struct	s_map
 
 typedef struct	s_character
 {
+  int		live;
   t_type	type;
   size_t	x;
   size_t	y;
