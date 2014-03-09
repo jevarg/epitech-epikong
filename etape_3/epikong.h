@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 22:34:53 2014 Jean Gravier
-** Last update Sun Mar  9 23:04:08 2014 Jean Gravier
+** Last update Sun Mar  9 23:10:47 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -89,7 +89,7 @@ void		check_map(t_map *);
 void		feed_map(t_map *, char *);
 char		*correct_line(char *);
 size_t		get_block_nb(t_map *, char);
-void		set_map(t_map *, int *);
+int		set_map(t_map *, int *);
 
 /*
 ** error.c
