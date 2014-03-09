@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:30 2014 Jean Gravier
-** Last update Sun Mar  9 01:27:30 2014 Fritsch harold
+** Last update Sun Mar  9 02:42:57 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -30,8 +30,7 @@ int		move_left(t_node *node, t_character *character)
 	  && !is_walkable(node->map, character->x - 1, character->y + 1))
 	return (0);
       fill_rect(character, &rect);
-      SDL_FillRect(node->surface, &rect, SDL_MapRGB(node->surface->format,
-						    40, 40, 40));
+      SDL_BlitSurface(get_image(SPRITE_BACKGROUND), &rect, node->surface, &rect);
       if ((old = get_old_block(node, character->x, character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       character->x -= 1;
@@ -60,8 +59,7 @@ int		move_right(t_node *node, t_character *character)
 	  && !is_walkable(node->map, character->x + 1, character->y + 1))
 	return (0);
       fill_rect(character, &rect);
-      SDL_FillRect(node->surface, &rect,
-		   SDL_MapRGB(node->surface->format, 40, 40, 40));
+      SDL_BlitSurface(get_image(SPRITE_BACKGROUND), &rect, node->surface, &rect);
       if ((old = get_old_block(node, character->x, character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       character->x += 1;
@@ -87,8 +85,7 @@ int		move_up(t_node *node, t_character *character)
       && valid(node->map, character->x, character->y - 1))
     {
       fill_rect(character, &rect);
-      SDL_FillRect(node->surface, &rect, SDL_MapRGB(node->surface->format,
-						    40, 40, 40));
+      SDL_BlitSurface(get_image(SPRITE_BACKGROUND), &rect, node->surface, &rect);
       if ((old = get_old_block(node, character->x,
 			       character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
@@ -110,8 +107,7 @@ int		move_down(t_node *node, t_character *character)
       && valid(node->map, character->x, character->y + 1))
     {
       fill_rect(character, &rect);
-      SDL_FillRect(node->surface, &rect, SDL_MapRGB(node->surface->format,
-						    40, 40, 40));
+      SDL_BlitSurface(get_image(SPRITE_BACKGROUND), &rect, node->surface, &rect);
       if ((old = get_old_block(node, character->x, character->y, character)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       character->y += 1;

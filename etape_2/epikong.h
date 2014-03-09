@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 01:31:53 2014 Jean Gravier
-** Last update Sun Mar  9 01:31:53 2014 Jean Gravier
+** Last update Sun Mar  9 02:42:35 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -16,6 +16,7 @@
 # define FALSE 0
 
 # define INVALID_MAP_MSG "Invalid map"
+# define SPRITE_BACKGROUND "../data/contents/backgrounds/bg1.png"
 # define SPRITE_WALL "../data/contents/world/wall4.png"
 # define SPRITE_LADDER "../data/contents/world/ladder.png"
 # define SPRITE_VILAIN_LEFT "../data/characters/vilain1/mechant1-left.png"

@@ -5,9 +5,10 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 01:21:06 2014 Jean Gravier
+** Last update Sun Mar  9 01:38:55 2014 Jean Gravier
 */
 
+#include <unistd.h>
 #include "epikong.h"
 
 char		*pause_menu(t_map *map)

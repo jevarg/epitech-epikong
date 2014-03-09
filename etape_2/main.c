@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 01:31:11 2014 Jean Gravier
-** Last update Sun Mar  9 01:31:35 2014 Jean Gravier
+** Last update Sun Mar  9 02:08:22 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -71,7 +71,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
       exit(EXIT_FAILURE);
     }
   surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height *
-			     BLOCK_SIZE, 32, SDL_HWSURFACE);
+			     BLOCK_SIZE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
   rect.x = 0;
   rect.y = 0;
   rect.w = surface->w;
@@ -91,7 +91,7 @@ void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
   s->surface  = sur;
 }
 
-int		main(int argc, char **argv)
+int		main()
 {
   SDL_Surface	*surface;
   t_map		map;
@@ -101,7 +101,7 @@ int		main(int argc, char **argv)
   surface = NULL;
   //menu(surface, &map);
   init(&s, &map, &player, surface);
-  feed_map(s.map, "test.map");
+  feed_map(s.map, "../data/contents/map/map5.map");
   set_position(s.map, s.player, 'i');
   s.nb_vilains = get_block_nb(s.map, 'm');
   s.surface = sdl_init(s.map, s.surface);
