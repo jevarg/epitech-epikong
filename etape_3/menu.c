@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 23:10:23 2014 Jean Gravier
+** Last update Sun Mar  9 23:18:22 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -67,7 +67,7 @@ void		menu_rotate_right(SDL_Surface *surface, int *select)
     *select = *select + 1;
 }
 
-void		pause_menu(SDL_Surface *surface, t_map *map)
+int		pause_menu(SDL_Surface *surface, t_map *map)
 {
   int		stop;
   int		select;
@@ -92,6 +92,7 @@ void		pause_menu(SDL_Surface *surface, t_map *map)
 	    return (set_map(map, &select));
 	}
     }
+  return (0);
 }
 
 void		menu(SDL_Surface *surface, t_map *map)
