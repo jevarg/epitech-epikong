@@ -1,19 +1,14 @@
 /*
-** block.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 20:12:34 2014 Jean Gravier
-** Last update Sun Mar  9 22:31:54 2014 Fritsch harold
+** block.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 22:36:37 2014 Fritsch harold
+** Last update Sun Mar  9 22:36:38 2014 Fritsch harold
 */
 
 #include "epikong.h"
-
-void		on_character()
-{
-
-}
 
 void		check_current_block(t_node *node)
 {
@@ -31,5 +26,8 @@ void		check_current_block(t_node *node)
 	}
       ++i;
     }
+  if (node->player->key
+      && node->map->map[node->player->y][node->player->x] == 'o')
+    player_win(node);
   draw_stuff(node);
 }

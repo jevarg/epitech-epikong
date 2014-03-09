@@ -4,8 +4,8 @@
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
 ** 
-** Started on  Sun Mar  9 22:08:40 2014 Fritsch harold
-** Last update Sun Mar  9 22:33:30 2014 Fritsch harold
+** Started on  Sun Mar  9 22:36:48 2014 Fritsch harold
+** Last update Sun Mar  9 22:36:53 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -29,7 +29,7 @@
 # define SPRITE_PLAYER_LIFE "../data/contents/world/life.png"
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
-
+# define SPRITE_WIN "../data/contents/backgrounds/win.png"
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
@@ -188,5 +188,11 @@ void		get_key(t_node *);
 */
 
 void		check_current_block(t_node *);
+
+/*
+** win.c
+*/
+
+void		player_win(t_node *);
 
 #endif /* !EPIKONG_H_ */
