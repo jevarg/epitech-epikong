@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 19:51:51 2014 Fritsch harold
+** Last update Sun Mar  9 20:30:21 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -42,17 +42,15 @@ void		sdl_loop(t_node *node)
   int		stop;
   SDL_Event	event;
   Uint8		*keystates;
+  int		k;
 
   stop = 0;
   keystates = SDL_GetKeyState(NULL);
   while (!stop)
     {
-      i = 0;
-      while (i < 4)
-	{
-	  move_ia(node);
-	  ++i;
-	}
+      i = -1;
+      while (++i < 4)
+	move_ia(node);
       while (i > 0 && !stop)
 	{
 	  SDL_WaitEvent(&event);
@@ -60,9 +58,14 @@ void		sdl_loop(t_node *node)
 	  fall(node);
 	  if (event.type == SDL_QUIT)
 	    stop = 1;
-	  else if (event.type == SDL_KEYDOWN)
-	    check_keys(node, keystates, &stop, &event);
-	  --i;
+	  else if ((event.type == SDL_KEYDOWN) &&
+		   (((k = event.key.keysym.sym) == SDLK_UP) ||
+		    (k == SDLK_DOWN) || (k == SDLK_LEFT) ||
+		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE)))
+	    {
+	      check_keys(node, keystates, &stop, &event);
+	      --i;
+	    }
 	}
     }
 }
