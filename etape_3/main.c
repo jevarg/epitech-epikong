@@ -4,8 +4,8 @@
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
 ** 
-** Started on  Sun Mar  9 22:08:29 2014 Fritsch harold
-** Last update Sun Mar  9 23:01:57 2014 Fritsch harold
+** Started on  Sun Mar  9 23:10:17 2014 Fritsch harold
+** Last update Sun Mar  9 23:10:26 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@ void		get_vilains(t_node *node)
 	exit_error("malloc error");
       last_pos = set_nposition(node->map, node->vilains[i], 'm', last_pos);
       node->vilains[i]->direction = LEFT;
+      node->vilains[i]->type = VILAIN;
       ++i;
     }
 }

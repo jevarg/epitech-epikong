@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 22:19:11 2014 Fritsch harold
+** Last update Sun Mar  9 22:40:50 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@ void		get_vilains(t_node *node)
 	exit_error("malloc error");
       last_pos = set_nposition(node->map, node->vilains[i], 'm', last_pos);
       node->vilains[i]->direction = LEFT;
+      node->vilains[i]->type = VILAIN;
       ++i;
     }
 }
