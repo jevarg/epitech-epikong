@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:08:40 2014 Fritsch harold
-** Last update Sun Mar  9 22:08:53 2014 Fritsch harold
+** Last update Sun Mar  9 22:28:12 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -62,13 +62,8 @@ typedef struct	s_map
 
 typedef struct	s_character
 {
-<<<<<<< HEAD
-  int		key;
-  int		live;
-=======
   int		life;
   int		key;
->>>>>>> 0c97f300b6967fd3d77faa33ec2b566269b265a9
   t_type	type;
   size_t	x;
   size_t	y;
@@ -181,21 +176,18 @@ void		menu(SDL_Surface *, t_map *);
 */
 
 void		check_fall_dead(t_node *, int);
-<<<<<<< HEAD
+void		player_die(t_node *);
 
 /*
 ** key.c
 */
 
 void		get_key(t_node *);
-=======
-void		player_die(t_node *);
 
 /*
 ** block.c
 */
 
 void		check_current_block(t_node *);
->>>>>>> 0c97f300b6967fd3d77faa33ec2b566269b265a9
 
 #endif /* !EPIKONG_H_ */

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:12:34 2014 Jean Gravier
-** Last update Sun Mar  9 21:30:48 2014 Jean Gravier
+** Last update Sun Mar  9 22:28:37 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -17,7 +17,7 @@ void		on_character()
 
 void		check_current_block(t_node *node)
 {
-  int		i;
+  size_t	i;
 
   i = 0;
   while (i < node->nb_vilains)

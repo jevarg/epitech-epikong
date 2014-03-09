@@ -1,15 +1,11 @@
 ##
-## Makefile for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_1
-##
-## Made by Jean Gravier
-## Login   <gravie_j@epitech.net>
-##
-## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-<<<<<<< HEAD
-## Last update Sun Mar  9 21:33:04 2014 Fritsch harold
-=======
-## Last update Sun Mar  9 20:45:33 2014 Jean Gravier
->>>>>>> 0c97f300b6967fd3d77faa33ec2b566269b265a9
+## Makefile for  in /home/fritsc_h/projets/T2Rush1/etape_3
+## 
+## Made by Fritsch harold
+## Login   <fritsc_h@epitech.net>
+## 
+## Started on  Sun Mar  9 22:27:21 2014 Fritsch harold
+## Last update Sun Mar  9 22:27:22 2014 Fritsch harold
 ##
 
 CC=		gcc
