@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 01:31:11 2014 Jean Gravier
-** Last update Sun Mar  9 01:31:35 2014 Jean Gravier
+** Last update Sun Mar  9 14:11:59 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
   s->surface  = sur;
 }
 
-int		main(int argc, char **argv)
+int		main()
 {
   SDL_Surface	*surface;
   t_map		map;

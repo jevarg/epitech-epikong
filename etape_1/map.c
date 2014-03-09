@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sat Mar  8 01:34:25 2014 Fritsch harold
+** Last update Sun Mar  9 02:08:02 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -18,7 +18,8 @@ void		check_map(t_map *s)
   size_t	i;
 
   i = 0;
-  s->width = strlen(s->map[0]);
+  if (((s->width = strlen(s->map[0])) > 40) || (s->height > 40))
+    exit_error(INVALID_MAP_MSG);
   while (s->map && s->map[i])
     {
       if (((s->map[i][0] != 'w') || (s->map[i][strlen(s->map[i]) - 1] != 'w'))
