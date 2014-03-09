@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 23:20:37 2014 Jean Gravier
+** Last update Sun Mar  9 23:38:01 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -69,21 +69,19 @@ void		menu_rotate_right(SDL_Surface *surface, int *select)
 
 int		pause_menu(SDL_Surface *surface, t_map *map)
 {
-  int		stop;
   int		select;
   SDL_Event	event;
 
-  stop = 0;
   select = 0;
-  while (!stop)
+  while (!map->stop)
     {
       SDL_WaitEvent(&event);
       if (event.type == SDL_QUIT)
-	stop = 1;
+	map->stop = 1;
       else if (event.type == SDL_KEYDOWN)
 	{
 	  if (event.key.keysym.sym == SDLK_ESCAPE)
-	    stop = 1;
+	    map->stop = 1;
 	  else if (event.key.keysym.sym == SDLK_LEFT)
 	    menu_rotate_left(surface, &select);
 	  else if (event.key.keysym.sym == SDLK_RIGHT)

@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
-** Last update Sun Mar  9 23:17:33 2014 Jean Gravier
+** Last update Sun Mar  9 23:36:44 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -70,6 +70,9 @@ void		check_keys(t_node *node, Uint8 *keystates,
   else if (event->key.keysym.sym == SDLK_RETURN)
     get_key(node);
   if (keystates[SDLK_ESCAPE])
-    *stop = 1;
+    {
+      *stop = 1;
+      node->map->stop = 1;
+    }
   check_current_block(node);
 }

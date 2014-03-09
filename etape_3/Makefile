@@ -5,7 +5,7 @@
 ## Login   <gravie_j@epitech.net>
 ##
 ## Started on  Sun Mar  9 22:35:54 2014 Jean Gravier
-## Last update Sun Mar  9 23:00:29 2014 Jean Gravier
+## Last update Sun Mar  9 23:29:01 2014 Jean Gravier
 ##
 
 CC=		gcc
@@ -15,6 +15,7 @@ RM=		rm -f
 NAME=		epikong
 
 SRCS=		main.c \
+		game.c \
 		menu.c \
 		draw_map.c \
 		draw_image.c \

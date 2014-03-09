@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Sun Mar  9 23:10:17 2014 Fritsch harold
-** Last update Sun Mar  9 23:16:37 2014 Jean Gravier
+** Last update Sun Mar  9 23:35:48 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -101,21 +101,8 @@ int		main()
   t_node	s;
 
   surface = NULL;
-  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT,
-		    MIX_DEFAULT_CHANNELS, 1024) == -1)
-    exit_error(Mix_GetError());
-  menu(surface, &map);
-  init(&s, &map, &player, surface);
-  feed_map(s.map, s.map->path);
-  set_position(s.map, s.player, 'i');
-  s.nb_vilains = get_block_nb(s.map, 'm');
-  s.surface = sdl_init(s.map, s.surface);
-  draw_map(s.map, s.surface);
-  get_vilains(&s);
-  Mix_PlayMusic(s.sounds[GAME], -1);
-  sdl_loop(&s);
-  Mix_FreeMusic(s.sounds[GAME]);
-  Mix_FreeMusic(s.sounds[KEY]);
+  map.stop = 0;
+  init_game(surface, &player, &map, &s);
   Mix_CloseAudio();
   SDL_Quit();
   return (0);

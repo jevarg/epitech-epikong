@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 23:11:29 2014 Jean Gravier
-** Last update Sun Mar  9 23:22:26 2014 Jean Gravier
+** Last update Sun Mar  9 23:37:39 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -62,6 +62,7 @@ typedef enum e_type
 
 typedef struct	s_map
 {
+  int		stop;
   size_t	width;
   size_t	height;
   char		*path;
@@ -210,5 +211,21 @@ void		player_win(t_node *);
 */
 
 char		*get_maps(int);
+
+/*
+** game.c
+*/
+
+void		init_game(SDL_Surface *, t_character *,
+			  t_map *, t_node *);
+
+/*
+** main.c
+*/
+
+void		init(t_node *, t_map *, t_character *, SDL_Surface *);
+SDL_Surface	*sdl_init(t_map *, SDL_Surface *);
+void		sdl_loop(t_node *);
+void		get_vilains(t_node *);
 
 #endif /* !EPIKONG_H_ */
