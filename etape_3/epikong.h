@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 20:22:00 2014 Jean Gravier
+** Last update Sun Mar  9 21:21:40 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -29,11 +29,10 @@
 # define SPRITE_PLAYER_LIFE "../data/contents/world/life.png"
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
-
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
-# define MENU (1)
+# define KEY (1)
 # define GAME (0)
 
 
@@ -57,13 +56,13 @@ typedef struct	s_map
   size_t	width;
   size_t	height;
   char		*path;
-  char		*bg_path;
   char		**map;
 }		t_map;
 
 typedef struct	s_character
 {
   int		life;
+  int		key;
   t_type	type;
   size_t	x;
   size_t	y;
@@ -73,12 +72,13 @@ typedef struct	s_character
 
 typedef struct	s_node
 {
-  Mix_Music	*musique[2];
+  Mix_Music	*sounds[2];
   t_map		*map;
   t_character	*player;
   t_character	**vilains;
   size_t	nb_vilains;
   SDL_Surface	*surface;
+  int		stop;
 }		t_node;
 
 /*
@@ -174,6 +174,12 @@ void		menu(SDL_Surface *, t_map *);
 ** dead.c
 */
 
-void	check_fall_dead(t_node *, int);
+void		check_fall_dead(t_node *, int);
+
+/*
+** block.c
+*/
+
+void		check_current_block(t_node *);
 
 #endif /* !EPIKONG_H_ */

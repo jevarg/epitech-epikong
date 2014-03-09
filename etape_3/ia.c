@@ -5,7 +5,7 @@
 ** Login   <delafo_b@epitech.net>
 **
 ** Started on  Sat Mar  8 14:57:49 2014 Brieuc de La Fouchardiere
-** Last update Sat Mar  8 22:59:06 2014 Brieuc de La Fouchardiere
+** Last update Sun Mar  9 21:03:30 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -16,7 +16,7 @@ void		move_ia(t_node *node)
   size_t	i;
 
   i = 0;
-  while (i < node->nb_vilains)
+  while (i < node->nb_vilains && !node->stop)
     {
       if (node->vilains[i]->direction == LEFT)
 	{
@@ -28,6 +28,7 @@ void		move_ia(t_node *node)
 	  if (move_right(node, node->vilains[i]) == 0)
 	    node->vilains[i]->direction = LEFT;
 	}
+      check_current_block(node);
       ++i;
     }
   SDL_Flip(node->surface);
