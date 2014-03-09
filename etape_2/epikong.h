@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:57 2014 Jean Gravier
-** Last update Sun Mar  9 01:24:15 2014 Fritsch harold
+** Last update Sun Mar  9 01:54:39 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -141,5 +141,6 @@ void		fall(t_node *);
 
 int		ladder_up(t_node *);
 void		ladder_down(t_node *);
+char		landing(t_node *);
 
 #endif /* !EPIKONG_H_ */
