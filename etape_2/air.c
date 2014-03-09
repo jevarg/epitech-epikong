@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 01:55:49 2014 Fritsch harold
-** Last update Sun Mar  9 01:55:50 2014 Fritsch harold
+** Last update Sun Mar  9 18:48:35 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -22,11 +22,7 @@ void		jump_left(t_node *node)
 	if (move_left(node, node->player))
 	  {
 	    usleep(10000);
-	    if (move_left(node, node->player))
-	      {
-		usleep(10000);
-		move_left(node, node->player);
-	      }
+	    move_left(node, node->player);
 	  }
       }
   fall(node);
@@ -44,11 +40,7 @@ void		jump_right(t_node *node)
 	if (move_right(node, node->player))
 	{
 	  usleep(10000);
-	  if (move_right(node, node->player))
-	    {
-	      usleep(10000);
-	      move_right(node, node->player);
-	    }
+	  move_right(node, node->player);
 	}
     }
   fall(node);

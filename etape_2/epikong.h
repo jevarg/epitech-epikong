@@ -5,15 +5,15 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 14:38:25 2014 Jean Gravier
+** Last update Sun Mar  9 18:56:05 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
-# define BLOCK_SIZE 30
-# define FALL_SPEED 50000
-# define TRUE 1
-# define FALSE 0
+# define BLOCK_SIZE (30)
+# define FALL_SPEED (50000)
+# define TRUE (1)
+# define FALSE (0)
 
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_BACKGROUND "../data/contents/backgrounds/bg1.png"
@@ -26,7 +26,14 @@
 # define SPRITE_PLAYER_LEFT "../data/characters/perso3/perso3-left.png"
 # define SPRITE_PLAYER_RIGHT "../data/characters/perso3/perso3-right.png"
 
+# define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
+# define SOUND_GAME "../data/contents/sound/Static.ogg"
+# define MENU (1)
+# define GAME (0)
+
+
 # include <SDL/SDL.h>
+# include <SDL/SDL_mixer.h>
 
 typedef enum e_direction
   {
@@ -60,6 +67,7 @@ typedef struct	s_character
 
 typedef struct	s_node
 {
+  Mix_Music	*musique[2];
   t_map		*map;
   t_character	*player;
   t_character	**vilains;
@@ -117,7 +125,7 @@ void		move_ia(t_node *);
 int		valid(t_map *, size_t, size_t);
 int		is_walkable(t_map *, size_t, size_t);
 SDL_Surface	*get_old_block(t_node *, size_t, size_t, t_character *);
-void		check_keys(t_node *, Uint8 *, int *);
+void		check_keys(t_node *, Uint8 *, int *, SDL_Event *);
 
 /*
 ** movement.c

@@ -5,17 +5,17 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 14:42:51 2014 Fritsch harold
-** Last update Sun Mar  9 14:51:40 2014 Fritsch harold
+** Last update Sun Mar  9 16:24:31 2014 Fritsch harold
 */
 
 #include "epikong.h"
 
 void	dead(t_node *node)
 {
-  ;
+  node->player->live = 0;
 }
 
-void	check_dead(t_node *node, int fall_height)
+void	check_fall_dead(t_node *node, int fall_height)
 {
   if (fall_height >= 4)
     dead(node);

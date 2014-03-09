@@ -5,7 +5,7 @@
 ## Login   <gravie_j@epitech.net>
 ##
 ## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Sun Mar  9 01:33:15 2014 Jean Gravier
+## Last update Sun Mar  9 18:35:51 2014 Fritsch harold
 ##
 
 CC=		gcc
@@ -24,7 +24,6 @@ SRCS=		main.c \
 		map.c \
 		error.c \
 		air.c \
-		menu.c \
 		ladder.c \
 		check.c \
 
@@ -33,7 +32,7 @@ OBJS=		$(SRCS:.c=.o)
 CFLAGS +=	-Wall -Wextra -g3
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME) -lSDL -lSDL_image
+	$(CC) $(OBJS) -o $(NAME) -lSDL -lSDL_image -lSDL_mixer
 
 all: $(NAME)
 
