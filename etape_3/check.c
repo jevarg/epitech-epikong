@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sat Mar  8 23:32:23 2014 Fritsch harold
-** Last update Sun Mar  9 21:04:33 2014 Fritsch harold
+** Last update Sun Mar  9 21:40:47 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -56,11 +56,13 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
 {
   void		(*func_tab[SDLK_LEFT + 1])(t_node *);
   int		(*func_tab2[SDLK_LEFT + 1])(t_node *, t_character *);
-  
+
+  printf("%d\n", SDLK_RETURN);
   func_tab2[SDLK_LEFT] = &move_left;
   func_tab2[SDLK_RIGHT] = &move_right;
   func_tab[SDLK_UP] = &check_jump;
   func_tab[SDLK_DOWN] = &ladder_down;
+  func_tab[SDLK_RETURN] = &get_key;
 
   if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
     jump_left(node);
@@ -69,9 +71,10 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
   else if ((event->key.keysym.sym == SDLK_LEFT) ||
 	   (event->key.keysym.sym == SDLK_RIGHT) ||
 	   (event->key.keysym.sym == SDLK_DOWN) ||
-	   (event->key.keysym.sym == SDLK_UP))
+	   (event->key.keysym.sym == SDLK_UP) ||
+	   (event->key.keysym.sym == SDLK_RETURN))
     {
-      if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_DOWN)
+      if (keystates[SDLK_UP] || keystates[SDLK_DOWN] || keystates[SDLK_RETURN])
 	(*func_tab[event->key.keysym.sym])(node);
       else if (keystates[SDLK_LEFT] || keystates[SDLK_RIGHT])
 	(*func_tab2[event->key.keysym.sym])(node, node->player);

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 20:07:50 2014 Jean Gravier
+** Last update Sun Mar  9 21:34:12 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -30,6 +30,7 @@
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
 
+# define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
 # define MENU (1)
@@ -62,6 +63,7 @@ typedef struct	s_map
 
 typedef struct	s_character
 {
+  int		key;
   int		live;
   t_type	type;
   size_t	x;
@@ -173,6 +175,12 @@ void		menu(SDL_Surface *, t_map *);
 ** dead.c
 */
 
-void	check_fall_dead(t_node *, int);
+void		check_fall_dead(t_node *, int);
+
+/*
+** key.c
+*/
+
+void		get_key(t_node *);
 
 #endif /* !EPIKONG_H_ */

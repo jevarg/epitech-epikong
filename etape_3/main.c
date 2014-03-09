@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 20:30:21 2014 Fritsch harold
+** Last update Sun Mar  9 21:34:52 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -61,7 +61,8 @@ void		sdl_loop(t_node *node)
 	  else if ((event.type == SDL_KEYDOWN) &&
 		   (((k = event.key.keysym.sym) == SDLK_UP) ||
 		    (k == SDLK_DOWN) || (k == SDLK_LEFT) ||
-		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE)))
+		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE) ||
+		    (k == SDLK_RETURN)))
 	    {
 	      check_keys(node, keystates, &stop, &event);
 	      --i;

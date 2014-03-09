@@ -5,16 +5,19 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 01:07:21 2014 Jean Gravier
-** Last update Sat Mar  8 01:08:04 2014 Jean Gravier
+** Last update Sun Mar  9 22:08:05 2014 Fritsch harold
 */
 
 #include "epikong.h"
 
 void		draw_all_sprites(SDL_Surface *surface)
 {
-  draw_image(surface, "../data/map/door-enter.png", BLOCK_SIZE * 0, BLOCK_SIZE * 0);
-  draw_image(surface, "../data/map/door-out.png", BLOCK_SIZE * 1, BLOCK_SIZE * 0);
-  draw_image(surface, "../data/map/ladder.png", BLOCK_SIZE * 2, BLOCK_SIZE * 0);
+  draw_image(surface, "../data/map/door-enter.png",
+	     BLOCK_SIZE * 0, BLOCK_SIZE * 0);
+  draw_image(surface, "../data/map/door-out.png",
+	     BLOCK_SIZE * 1, BLOCK_SIZE * 0);
+  draw_image(surface, "../data/map/ladder.png",
+	     BLOCK_SIZE * 2, BLOCK_SIZE * 0);
   draw_image(surface, "../data/map/wall1.png", BLOCK_SIZE * 3, BLOCK_SIZE * 0);
   draw_image(surface, "../data/map/wall2.png", BLOCK_SIZE * 4, BLOCK_SIZE * 0);
   draw_image(surface, "../data/map/wall3.png", BLOCK_SIZE * 5, BLOCK_SIZE * 0);
