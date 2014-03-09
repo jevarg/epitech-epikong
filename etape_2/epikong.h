@@ -1,11 +1,11 @@
 /*
-** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sat Mar  8 20:52:57 2014 Jean Gravier
-** Last update Sun Mar  9 01:24:15 2014 Fritsch harold
+** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 01:56:01 2014 Fritsch harold
+** Last update Sun Mar  9 01:56:05 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -43,6 +43,8 @@ typedef struct	s_map
 {
   size_t	width;
   size_t	height;
+  char		*path;
+  char		*bg_path;
   char		**map;
 }		t_map;
 
@@ -141,5 +143,6 @@ void		fall(t_node *);
 
 int		ladder_up(t_node *);
 void		ladder_down(t_node *);
+char		landing(t_node *);
 
 #endif /* !EPIKONG_H_ */

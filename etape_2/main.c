@@ -1,11 +1,11 @@
 /*
-** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
-** 
-** Made by Fritsch harold
-** Login   <fritsc_h@epitech.net>
-** 
-** Started on  Sun Mar  9 01:18:17 2014 Fritsch harold
-** Last update Sun Mar  9 01:29:18 2014 Fritsch harold
+** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
+**
+** Made by Jean Gravier
+** Login   <gravie_j@epitech.net>
+**
+** Started on  Sun Mar  9 01:31:11 2014 Jean Gravier
+** Last update Sun Mar  9 01:31:35 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(25000);
+      usleep(50000);
       move_ia(node);
       fall(node);
       if (event.type == SDL_QUIT)
@@ -79,7 +79,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
   //  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
   SDL_BlitSurface(background, NULL, surface, &rect);
   SDL_Flip(surface);
-  SDL_WM_SetCaption("Super Expendablos Deluxe edifion", NULL);
+  SDL_WM_SetCaption("Super Expendablos Deluxe Edifion", NULL);
   return (surface);
 }
 
@@ -99,17 +99,15 @@ int		main(int argc, char **argv)
   t_node	s;
 
   surface = NULL;
-  if (argc > 1)
-    {
-      init(&s, &map, &player, surface);
-      feed_map(s.map, argv[1]);
-      set_position(s.map, s.player, 'i');
-      s.nb_vilains = get_block_nb(s.map, 'm');
-      s.surface = sdl_init(s.map, s.surface);
-      draw_map(s.map, s.surface);
-      get_vilains(&s);
-      sdl_loop(&s);
-      SDL_Quit();
-    }
+  //menu(surface, &map);
+  init(&s, &map, &player, surface);
+  feed_map(s.map, "test.map");
+  set_position(s.map, s.player, 'i');
+  s.nb_vilains = get_block_nb(s.map, 'm');
+  s.surface = sdl_init(s.map, s.surface);
+  draw_map(s.map, s.surface);
+  get_vilains(&s);
+  sdl_loop(&s);
+  SDL_Quit();
   return (0);
 }
