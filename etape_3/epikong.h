@@ -1,11 +1,11 @@
 /*
-** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
+** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
 **
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 19:56:38 2014 Jean Gravier
+** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
+** Last update Sun Mar  9 20:07:50 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -26,6 +26,9 @@
 # define SPRITE_CLOSE_DOOR "../data/contents/world/in-helicrash.png"
 # define SPRITE_PLAYER_LEFT "../data/characters/perso1/perso1-left.png"
 # define SPRITE_PLAYER_RIGHT "../data/characters/perso1/perso1-right.png"
+# define SPRITE_PLAYER_LIFE "../data/contents/world/life.png"
+# define SPRITE_KEY_CAR "../data/contents/world/key.png"
+# define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
 
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
@@ -59,6 +62,7 @@ typedef struct	s_map
 
 typedef struct	s_character
 {
+  int		live;
   t_type	type;
   size_t	x;
   size_t	y;
@@ -164,5 +168,11 @@ char		landing(t_node *);
 */
 
 void		menu(SDL_Surface *, t_map *);
+
+/*
+** dead.c
+*/
+
+void	check_fall_dead(t_node *, int);
 
 #endif /* !EPIKONG_H_ */

@@ -1,17 +1,18 @@
 /*
 ** dead.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sun Mar  9 14:42:51 2014 Fritsch harold
-** Last update Sun Mar  9 16:24:31 2014 Fritsch harold
+** Last update Sun Mar  9 20:07:18 2014 Jean Gravier
 */
 
 #include "epikong.h"
 
 void	dead(t_node *node)
 {
+  puts("mort");
   node->player->live = 0;
 }
 

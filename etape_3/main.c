@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 19:10:01 2014 Jean Gravier
+** Last update Sun Mar  9 19:51:51 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -38,6 +38,7 @@ void		get_vilains(t_node *node)
 
 void		sdl_loop(t_node *node)
 {
+  int		i;
   int		stop;
   SDL_Event	event;
   Uint8		*keystates;
@@ -46,14 +47,23 @@ void		sdl_loop(t_node *node)
   keystates = SDL_GetKeyState(NULL);
   while (!stop)
     {
-      SDL_PollEvent(&event);
-      usleep(25000);
-      move_ia(node);
-      fall(node);
-      if (event.type == SDL_QUIT)
-	stop = 1;
-      else if (event.type == SDL_KEYDOWN)
-	check_keys(node, keystates, &stop, &event);
+      i = 0;
+      while (i < 4)
+	{
+	  move_ia(node);
+	  ++i;
+	}
+      while (i > 0 && !stop)
+	{
+	  SDL_WaitEvent(&event);
+	  usleep(25000);
+	  fall(node);
+	  if (event.type == SDL_QUIT)
+	    stop = 1;
+	  else if (event.type == SDL_KEYDOWN)
+	    check_keys(node, keystates, &stop, &event);
+	  --i;
+	}
     }
 }
 
