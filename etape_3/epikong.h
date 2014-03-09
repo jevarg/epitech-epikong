@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 19:18:44 2014 Jean Gravier
+** Last update Sun Mar  9 19:52:00 2014 Brieuc de La Fouchardiere
 */
 
 #ifndef EPIKONG_H_
@@ -26,6 +26,9 @@
 # define SPRITE_CLOSE_DOOR "../data/contents/world/in-helicrash.png"
 # define SPRITE_PLAYER_LEFT "../data/characters/perso1/perso1-left.png"
 # define SPRITE_PLAYER_RIGHT "../data/characters/perso1/perso1-right.png"
+# define SPRITE_PLAYER_LIFE "../data/contents/world/life.png"
+# define SPRITE_KEY_CAR "../data/contents/world/key.png"
+# define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
 
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
