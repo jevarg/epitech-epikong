@@ -1,11 +1,11 @@
 /*
 ** air.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sat Mar  8 18:36:57 2014 Fritsch harold
-** Last update Sat Mar  8 20:40:04 2014 Fritsch harold
+** Last update Sat Mar  8 21:45:27 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -47,7 +47,7 @@ void		fall(t_node *node)
 {
   size_t	i;
   size_t	speed;
-  
+
   i = 1;
   while (!is_walkable(node->map, node->player->x, node->player->y + 1))
     {

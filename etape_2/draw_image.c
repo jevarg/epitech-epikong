@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:53:23 2014 Jean Gravier
-** Last update Sat Mar  8 20:53:23 2014 Jean Gravier
+** Last update Sat Mar  8 21:26:49 2014 Jean Gravier
 */
 
 #include <SDL/SDL_image.h>

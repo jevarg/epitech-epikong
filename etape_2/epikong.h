@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:57 2014 Jean Gravier
-** Last update Sat Mar  8 20:56:17 2014 Jean Gravier
+** Last update Sat Mar  8 23:37:52 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -41,6 +41,8 @@ typedef struct	s_map
 {
   size_t	width;
   size_t	height;
+  char		*path;
+  char		*bg_path;
   char		**map;
 }		t_map;
 
