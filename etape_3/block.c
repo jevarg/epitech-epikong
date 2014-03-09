@@ -5,19 +5,14 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:12:34 2014 Jean Gravier
-** Last update Sun Mar  9 21:30:48 2014 Jean Gravier
+** Last update Sun Mar  9 22:28:34 2014 Jean Gravier
 */
 
 #include "epikong.h"
 
-void		on_character()
-{
-
-}
-
 void		check_current_block(t_node *node)
 {
-  int		i;
+  size_t	i;
 
   i = 0;
   while (i < node->nb_vilains)
@@ -31,6 +26,8 @@ void		check_current_block(t_node *node)
 	}
       ++i;
     }
+  if (node->player->key
+      && node->map->map[node->player->y][node->player->x] == 'o')
+    player_win(node);
   draw_stuff(node);
-  //printf ("life: %d\n", node->player->life);
 }

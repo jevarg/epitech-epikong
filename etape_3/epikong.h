@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 21:52:39 2014 Jean Gravier
+** Last update Sun Mar  9 22:27:29 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -29,6 +29,7 @@
 # define SPRITE_PLAYER_LIFE "../data/contents/world/life.png"
 # define SPRITE_KEY_CAR "../data/contents/world/key.png"
 # define SPRITE_GAMEOVER "../data/contents/backgrounds/gameover.png"
+# define SPRITE_WIN "../data/contents/backgrounds/win.png"
 # define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
 # define SOUND_KEY "../data/contents/sound/keysound.ogg"
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
@@ -182,5 +183,11 @@ void		player_die(t_node *);
 */
 
 void		check_current_block(t_node *);
+
+/*
+** win.c
+*/
+
+void		player_win(t_node *);
 
 #endif /* !EPIKONG_H_ */
