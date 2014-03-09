@@ -5,11 +5,20 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:53:23 2014 Jean Gravier
-** Last update Sat Mar  8 21:26:49 2014 Jean Gravier
+** Last update Sun Mar  9 14:41:44 2014 Jean Gravier
 */
 
 #include <SDL/SDL_image.h>
 #include "epikong.h"
+
+void		blit_part(SDL_Surface *surface, SDL_Rect *rect, char *path)
+{
+  SDL_Surface	*image;
+
+  image = get_image(path);
+  SDL_BlitSurface(image, rect, surface, rect);
+  SDL_FreeSurface(image);
+}
 
 SDL_Surface	*get_image(char *path)
 {

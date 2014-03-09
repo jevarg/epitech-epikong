@@ -1,11 +1,11 @@
 /*
-** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_2
-** 
-** Made by Fritsch harold
-** Login   <fritsc_h@epitech.net>
-** 
-** Started on  Sun Mar  9 01:56:01 2014 Fritsch harold
-** Last update Sun Mar  9 01:56:05 2014 Fritsch harold
+** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
+**
+** Made by Jean Gravier
+** Login   <gravie_j@epitech.net>
+**
+** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
+** Last update Sun Mar  9 14:38:25 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -16,6 +16,7 @@
 # define FALSE 0
 
 # define INVALID_MAP_MSG "Invalid map"
+# define SPRITE_BACKGROUND "../data/contents/backgrounds/bg1.png"
 # define SPRITE_WALL "../data/contents/world/wall4.png"
 # define SPRITE_LADDER "../data/contents/world/ladder.png"
 # define SPRITE_VILAIN_LEFT "../data/characters/vilain1/mechant1-left.png"
@@ -87,6 +88,7 @@ void		exit_error(char *);
 
 void		draw_image(SDL_Surface *, char *, int, int);
 SDL_Surface	*get_image(char *);
+void		blit_part(SDL_Surface *, SDL_Rect *, char *);
 
 /*
 ** draw_map.c
