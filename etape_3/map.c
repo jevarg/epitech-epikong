@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Fri Mar  7 22:15:22 2014 Fritsch harold
-** Last update Sun Mar  9 19:56:42 2014 Jean Gravier
+** Last update Sun Mar  9 23:09:25 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "epikong.h"
 
-void		set_map(t_map *map, int *select)
+int		set_map(t_map *map, int *select)
 {
   char		*maps[5];
 
@@ -23,6 +23,7 @@ void		set_map(t_map *map, int *select)
   maps[3] = "../data/contents/map/map3.map";
   maps[4] = "../data/contents/map/map4.map";
   map->path = maps[*select];
+  return (0);
 }
 
 size_t		get_block_nb(t_map *map, char block_type)

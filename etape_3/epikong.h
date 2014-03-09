@@ -1,11 +1,11 @@
 /*
-** epikong.h for  in /home/fritsc_h/projets/T2Rush1/etape_3
-** 
-** Made by Fritsch harold
-** Login   <fritsc_h@epitech.net>
-** 
-** Started on  Sun Mar  9 22:36:48 2014 Fritsch harold
-** Last update Sun Mar  9 23:02:25 2014 Fritsch harold
+** epikong.h for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
+**
+** Made by Jean Gravier
+** Login   <gravie_j@epitech.net>
+**
+** Started on  Sun Mar  9 23:11:29 2014 Jean Gravier
+** Last update Sun Mar  9 23:11:29 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -98,7 +98,7 @@ void		check_map(t_map *);
 void		feed_map(t_map *, char *);
 char		*correct_line(char *);
 size_t		get_block_nb(t_map *, char);
-void		set_map(t_map *, int *);
+int		set_map(t_map *, int *);
 
 /*
 ** error.c
@@ -204,5 +204,11 @@ void		check_current_block(t_node *);
 */
 
 void		player_win(t_node *);
+
+/*
+** menu_map.c
+*/
+
+char		*get_maps(int);
 
 #endif /* !EPIKONG_H_ */

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 20:40:35 2014 Jean Gravier
+** Last update Sun Mar  9 23:10:23 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -21,57 +21,44 @@ void		menu_render_image(SDL_Surface *surface, char *path, int x, int y)
 
 void		menu_rotate_left(SDL_Surface *surface, int *select)
 {
-  char		*maps[5];
   int		gap;
   int		x;
 
   x = (800 / 2) - (500 / 2);
   gap = x;
-  maps[0] = "../data/contents/menu/thumb/map1.png";
-  maps[1] = "../data/contents/menu/thumb/map2.png";
-  maps[2] = "../data/contents/menu/thumb/map3.png";
-  maps[3] = "../data/contents/menu/thumb/map4.png";
-  maps[4] = "../data/contents/menu/thumb/map5.png";
   while (x > (-500))
     {
       x -= MENU_SPEED;
       draw_image_only(surface, "../data/map/backgrounds/bg.png", 0, 0);
-      menu_render_image(surface, maps[*select], x, 150);
+      menu_render_image(surface, get_maps(*select), x, 150);
       if (*select - 1 < 0)
-	menu_render_image(surface, maps[4], (x + gap + 500), 150);
+	menu_render_image(surface, get_maps(4), (x + gap + 500), 150);
       else
-	menu_render_image(surface, maps[*select - 1], (x + gap + 500), 150);
+	menu_render_image(surface, get_maps(*select - 1), (x + gap + 500), 150);
       SDL_Flip(surface);
     }
   if (*select - 1 < 0)
     *select = 4;
   else
     *select = *select - 1;
-
 }
 
 void		menu_rotate_right(SDL_Surface *surface, int *select)
 {
-  char		*maps[5];
   int		gap;
   int		x;
 
   x = (800 / 2) - (500 / 2);
   gap = x;
-  maps[0] = "../data/contents/menu/thumb/map1.png";
-  maps[1] = "../data/contents/menu/thumb/map2.png";
-  maps[2] = "../data/contents/menu/thumb/map3.png";
-  maps[3] = "../data/contents/menu/thumb/map4.png";
-  maps[4] = "../data/contents/menu/thumb/map5.png";
   while (x < 800)
     {
       x += MENU_SPEED;
       draw_image_only(surface, "../data/map/backgrounds/bg.png", 0, 0);
-      draw_image_only(surface, maps[*select], x, 150);
+      draw_image_only(surface, get_maps(*select), x, 150);
       if (*select + 1 > 4)
-	menu_render_image(surface, maps[0], (x - gap - 500), 150);
+	menu_render_image(surface, get_maps(0), (x - gap - 500), 150);
       else
-	menu_render_image(surface, maps[*select + 1], (x - gap - 500), 150);
+	menu_render_image(surface, get_maps(*select + 1), (x - gap - 500), 150);
       SDL_Flip(surface);
     }
   if (*select + 1 > 4)
@@ -102,10 +89,7 @@ void		pause_menu(SDL_Surface *surface, t_map *map)
 	  else if (event.key.keysym.sym == SDLK_RIGHT)
 	    menu_rotate_right(surface, &select);
 	  else if (event.key.keysym.sym == SDLK_RETURN)
-	    {
-	      set_map(map, &select);
-	      stop = 1;
-	    }
+	    return (set_map(map, &select));
 	}
     }
 }
@@ -116,7 +100,8 @@ void		menu(SDL_Surface *surface, t_map *map)
 
   surface = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
   draw_image(surface, "../data/map/backgrounds/bg.png", 0, 0);
-  draw_image(surface, "../data/contents/menu/thumb/map1.png", ((800 / 2) - (500 / 2)), 150);
+  draw_image(surface, "../data/contents/menu/thumb/map1.png",
+	     ((800 / 2) - (500 / 2)), 150);
   SDL_Flip(surface);
   music = Mix_LoadMUS(SOUND_MENU);
   Mix_PlayMusic(music, -1);
