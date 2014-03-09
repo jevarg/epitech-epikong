@@ -1,11 +1,11 @@
 /*
 ** error.c for  in /home/fritsc_h/projets/T2Rush1/etape_1
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sat Mar  8 00:57:12 2014 Fritsch harold
-** Last update Sat Mar  8 01:11:00 2014 Fritsch harold
+** Last update Sun Mar  9 18:47:10 2014 Brieuc de La Fouchardiere
 */
 
 #include <stdio.h>
