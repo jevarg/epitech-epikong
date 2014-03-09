@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 20:58:06 2014 Jean Gravier
-** Last update Sat Mar  8 17:48:49 2014 Jean Gravier
+** Last update Sun Mar  9 19:55:28 2014 Brieuc de La Fouchardiere
 */
 
 #include <stdlib.h>
@@ -22,6 +22,8 @@ void	char_to_sprite(char c, int x, int y, SDL_Surface *surface)
     draw_image(surface, SPRITE_VILAIN_LEFT, x, y);
   else if (c == 'o')
     draw_image(surface, SPRITE_OPEN_DOOR, x, y);
+  else if (c == 'k')
+    draw_image(surface, SPRITE_KEY_CAR, x, y);
   else if (c == 'i')
     {
       draw_image(surface, SPRITE_CLOSE_DOOR, x, y);
