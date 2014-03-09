@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:53:23 2014 Jean Gravier
-** Last update Sun Mar  9 19:49:38 2014 Jean Gravier
+** Last update Sun Mar  9 22:18:33 2014 Fritsch harold
 */
 
 #include <SDL/SDL_image.h>
@@ -73,7 +73,8 @@ void		draw_image_only(SDL_Surface *surface, char *path, int x, int y)
   SDL_FreeSurface(image);
 }
 
-void		draw_image_menu_part(SDL_Surface *surface, char *path, int x, int y)
+void		draw_image_menu_part(SDL_Surface *surface,
+				     char *path, int x, int y)
 {
   SDL_Surface	*image;
   SDL_Rect	rect;

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 19:10:01 2014 Jean Gravier
+** Last update Sun Mar  9 22:19:11 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -88,7 +88,8 @@ int		main()
   t_node	s;
 
   surface = NULL;
-  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT,
+		    MIX_DEFAULT_CHANNELS, 1024) == -1)
     exit_error(Mix_GetError());
   menu(surface, &map);
   init(&s, &map, &player, surface);

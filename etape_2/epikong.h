@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 19:44:30 2014 Jean Gravier
+** Last update Sun Mar  9 22:18:44 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
@@ -31,7 +31,6 @@
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
 # define MENU (1)
 # define GAME (0)
-
 
 # include <SDL/SDL.h>
 # include <SDL/SDL_mixer.h>
