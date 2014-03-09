@@ -1,11 +1,11 @@
 ##
-## Makefile for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_1
+## Makefile for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_3
 ##
 ## Made by Jean Gravier
 ## Login   <gravie_j@epitech.net>
 ##
-## Started on  Fri Mar  7 21:36:25 2014 Jean Gravier
-## Last update Sun Mar  9 22:32:46 2014 Jean Gravier
+## Started on  Sun Mar  9 22:35:54 2014 Jean Gravier
+## Last update Sun Mar  9 22:36:00 2014 Jean Gravier
 ##
 
 CC=		gcc

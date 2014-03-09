@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sun Mar  9 22:30:54 2014 Jean Gravier
-** Last update Sun Mar  9 22:32:01 2014 Jean Gravier
+** Started on  Sun Mar  9 22:34:53 2014 Jean Gravier
+** Last update Sun Mar  9 22:35:19 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -175,13 +175,13 @@ void		menu(SDL_Surface *, t_map *);
 */
 
 void		check_fall_dead(t_node *, int);
+void		player_die(t_node *);
 
 /*
 ** key.c
 */
 
 void		get_key(t_node *);
-void		player_die(t_node *);
 
 /*
 ** block.c
