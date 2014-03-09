@@ -5,9 +5,10 @@
 ** Login   <delafo_b@epitech.net>
 **
 ** Started on  Sat Mar  8 14:57:49 2014 Brieuc de La Fouchardiere
-** Last update Sat Mar  8 18:59:05 2014 Jean Gravier
+** Last update Sat Mar  8 22:59:06 2014 Brieuc de La Fouchardiere
 */
 
+#include <unistd.h>
 #include "epikong.h"
 
 void		move_ia(t_node *node)

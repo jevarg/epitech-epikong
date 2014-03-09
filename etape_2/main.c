@@ -1,11 +1,11 @@
 /*
-** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
-** Last update Sun Mar  9 00:24:50 2014 Fritsch harold
+** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 01:18:17 2014 Fritsch harold
+** Last update Sun Mar  9 01:18:21 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ void		sdl_loop(t_node *node)
   while (!stop)
     {
       SDL_PollEvent(&event);
-      usleep(25000);
+      usleep(100000);
       move_ia(node);
       fall(node);
       if (event.type == SDL_QUIT)
