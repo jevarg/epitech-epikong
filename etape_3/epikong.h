@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 22:34:53 2014 Jean Gravier
-** Last update Sun Mar  9 22:35:19 2014 Jean Gravier
+** Last update Sun Mar  9 23:04:08 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -194,5 +194,11 @@ void		check_current_block(t_node *);
 */
 
 void		player_win(t_node *);
+
+/*
+** menu_map.c
+*/
+
+char		*get_maps(int);
 
 #endif /* !EPIKONG_H_ */
