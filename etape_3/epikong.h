@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 23:11:29 2014 Jean Gravier
-** Last update Sun Mar  9 23:11:29 2014 Jean Gravier
+** Last update Sun Mar  9 23:22:26 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_

@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 22:18:44 2014 Fritsch harold
+** Last update Sun Mar  9 23:22:40 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -83,7 +83,7 @@ void		check_map(t_map *);
 void		feed_map(t_map *, char *);
 char		*correct_line(char *);
 size_t		get_block_nb(t_map *, char);
-void		set_map(t_map *, int *);
+int		set_map(t_map *, int *);
 
 /*
 ** error.c
@@ -163,5 +163,11 @@ char		landing(t_node *);
 */
 
 void		menu(SDL_Surface *, t_map *);
+
+/*
+** menu_map.c
+*/
+
+char		*get_maps(int);
 
 #endif /* !EPIKONG_H_ */
