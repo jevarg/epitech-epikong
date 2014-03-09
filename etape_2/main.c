@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 18:54:36 2014 Jean Gravier
+** Last update Sun Mar  9 19:10:01 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -53,13 +53,13 @@ void		sdl_loop(t_node *node)
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (event.type == SDL_KEYDOWN)
-	check_keys(node, keystates, &stop);
+	check_keys(node, keystates, &stop, &event);
     }
 }
 
 SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 {
-  if (SDL_Init(SDL_INIT_VIDEO) == -1)
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
@@ -77,6 +77,7 @@ void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
   p->in_air = FALSE;
   s->player = p;
   s->surface  = sur;
+  s->musique[GAME] = Mix_LoadMUS(SOUND_GAME);
 }
 
 int		main()
@@ -87,6 +88,8 @@ int		main()
   t_node	s;
 
   surface = NULL;
+  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+    exit_error(Mix_GetError());
   menu(surface, &map);
   init(&s, &map, &player, surface);
   feed_map(s.map, s.map->path);
@@ -95,7 +98,10 @@ int		main()
   s.surface = sdl_init(s.map, s.surface);
   draw_map(s.map, s.surface);
   get_vilains(&s);
+  Mix_PlayMusic(s.musique[GAME], -1);
   sdl_loop(&s);
+  Mix_FreeMusic(s.musique[GAME]);
+  Mix_CloseAudio();
   SDL_Quit();
   return (0);
 }

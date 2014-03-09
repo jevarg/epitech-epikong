@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 19:04:08 2014 Jean Gravier
+** Last update Sun Mar  9 19:11:40 2014 Jean Gravier
 */
 
 #include <unistd.h>
@@ -112,6 +112,7 @@ void		menu(SDL_Surface *surface, t_map *map)
 {
   SDL_Rect	rect;
   SDL_Surface	*background;
+  Mix_Music	*music;
 
   rect.x = 0;
   rect.y = 0;
@@ -121,6 +122,9 @@ void		menu(SDL_Surface *surface, t_map *map)
   draw_image(surface, "../data/map/backgrounds/bg.png", 0, 0);
   draw_image(surface, "../data/contents/menu/thumb/map1.png", ((800 / 2) - (500 / 2)), 150);
   SDL_Flip(surface);
+  music = Mix_LoadMUS(SOUND_MENU);
+  Mix_PlayMusic(music, -1);
   pause_menu(surface, map);
+  Mix_FreeMusic(music);
   SDL_FreeSurface(surface);
 }

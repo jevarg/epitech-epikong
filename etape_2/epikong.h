@@ -5,17 +5,17 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 02:44:03 2014 Jean Gravier
-** Last update Sun Mar  9 19:04:40 2014 Jean Gravier
+** Last update Sun Mar  9 19:18:44 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
-# define BLOCK_SIZE 30
-# define FALL_SPEED 50000
-# define MENU_SPEED 45
-# define TRUE 1
-# define FALSE 0
 
+# define BLOCK_SIZE (30)
+# define FALL_SPEED (50000)
+# define MENU_SPEED (45)
+# define TRUE (1)
+# define FALSE (0)
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_BACKGROUND "../data/contents/backgrounds/bg1.png"
 # define SPRITE_WALL "../data/contents/world/wall4.png"
@@ -24,10 +24,17 @@
 # define SPRITE_VILAIN_RIGHT "../data/characters/vilain1/mechant1-right.png"
 # define SPRITE_OPEN_DOOR "../data/contents/world/car-out.png"
 # define SPRITE_CLOSE_DOOR "../data/contents/world/in-helicrash.png"
-# define SPRITE_PLAYER_LEFT "../data/characters/perso3/perso3-left.png"
-# define SPRITE_PLAYER_RIGHT "../data/characters/perso3/perso3-right.png"
+# define SPRITE_PLAYER_LEFT "../data/characters/perso1/perso1-left.png"
+# define SPRITE_PLAYER_RIGHT "../data/characters/perso1/perso1-right.png"
+
+# define SOUND_MENU "../data/contents/sound/HorseSteppin.ogg"
+# define SOUND_GAME "../data/contents/sound/Static.ogg"
+# define MENU (1)
+# define GAME (0)
+
 
 # include <SDL/SDL.h>
+# include <SDL/SDL_mixer.h>
 
 typedef enum e_direction
   {
@@ -61,6 +68,7 @@ typedef struct	s_character
 
 typedef struct	s_node
 {
+  Mix_Music	*musique[2];
   t_map		*map;
   t_character	*player;
   t_character	**vilains;
@@ -120,7 +128,7 @@ void		move_ia(t_node *);
 int		valid(t_map *, size_t, size_t);
 int		is_walkable(t_map *, size_t, size_t);
 SDL_Surface	*get_old_block(t_node *, size_t, size_t, t_character *);
-void		check_keys(t_node *, Uint8 *, int *);
+void		check_keys(t_node *, Uint8 *, int *, SDL_Event *);
 
 /*
 ** movement.c
