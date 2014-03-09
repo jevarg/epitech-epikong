@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Sun Mar  9 14:42:51 2014 Fritsch harold
-** Last update Sun Mar  9 22:38:01 2014 Fritsch harold
+** Last update Sun Mar  9 23:42:17 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -21,6 +21,7 @@ void		player_die(t_node *node)
 	       SDL_MapRGB(node->surface->format, 0, 0, 0));
   draw_image(node->surface, SPRITE_GAMEOVER, x, y);
   node->stop = 2;
+  my_pause();
 }
 
 void	dead(t_node *node)

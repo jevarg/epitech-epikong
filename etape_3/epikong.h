@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 23:11:29 2014 Jean Gravier
-** Last update Sun Mar  9 23:37:39 2014 Jean Gravier
+** Last update Sun Mar  9 23:41:19 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -227,5 +227,7 @@ void		init(t_node *, t_map *, t_character *, SDL_Surface *);
 SDL_Surface	*sdl_init(t_map *, SDL_Surface *);
 void		sdl_loop(t_node *);
 void		get_vilains(t_node *);
+
+void		my_pause();
 
 #endif /* !EPIKONG_H_ */

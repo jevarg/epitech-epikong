@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 21:58:07 2014 Jean Gravier
-** Last update Sun Mar  9 22:39:23 2014 Fritsch harold
+** Last update Sun Mar  9 23:42:41 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -21,4 +21,5 @@ void		player_win(t_node *node)
 	       SDL_MapRGB(node->surface->format, 0, 0, 0));
   draw_image(node->surface, SPRITE_WIN, x, y);
   node->stop = 3;
+  my_pause();
 }
