@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 **
 ** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
-** Last update Sun Mar  9 23:16:57 2014 Jean Gravier
+** Last update Sun Mar  9 23:17:33 2014 Jean Gravier
 */
 
 #include "epikong.h"
