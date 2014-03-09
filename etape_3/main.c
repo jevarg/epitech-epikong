@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 22:08:29 2014 Fritsch harold
-** Last update Sun Mar  9 22:08:33 2014 Fritsch harold
+** Last update Sun Mar  9 23:01:57 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -46,9 +46,7 @@ void		sdl_loop(t_node *node)
   keystates = SDL_GetKeyState(NULL);
   while (!node->stop)
     {
-      i = -1;
-      while (++i < 4 && !node->stop)
-	move_ia(node);
+      ia_cycle(node, &i);
       while (i > 0 && !node->stop)
 	{
 	  SDL_WaitEvent(&event);
@@ -56,11 +54,9 @@ void		sdl_loop(t_node *node)
 	  fall(node);
        	  if (event.type == SDL_QUIT)
 	    node->stop = 1;
-	  else if ((event.type == SDL_KEYDOWN) &&
-		   (((k = event.key.keysym.sym) == SDLK_UP) ||
-		    (k == SDLK_DOWN) || (k == SDLK_LEFT) ||
-		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE) ||
-		    (k == SDLK_RETURN)))
+	  else if ((event.type == P)
+		   && (((k = event.key.keysym.sym) == U) || k == D || k == L ||
+		       k == R || k == E || k == Q))
 	    {
 	      check_current_block(node);
 	      check_keys(node, keystates, &node->stop, &event);
@@ -105,7 +101,8 @@ int		main()
   t_node	s;
 
   surface = NULL;
-  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
+  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT,
+		    MIX_DEFAULT_CHANNELS, 1024) == -1)
     exit_error(Mix_GetError());
   menu(surface, &map);
   init(&s, &map, &player, surface);
