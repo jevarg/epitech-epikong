@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sun Mar  9 01:55:49 2014 Fritsch harold
-** Last update Sun Mar  9 20:03:59 2014 Fritsch harold
+** Last update Sun Mar  9 21:15:24 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -69,32 +69,27 @@ char		first_cell_fall(t_node *node)
 
 void		fall(t_node *node)
 {
-  size_t	i;
+  int		i;
   size_t	speed;
-  size_t	count;
 
-  i = 1;
-  count = 2;
-  while (!is_walkable(node->map, node->player->x, node->player->y + 1))
+  i = 2;
+  speed = 2;
+  while (!is_walkable(node->map, node->player->x, node->player->y + 1) && (i != -1))
     {
-      if (i == 1)
-	{
-	  if (first_cell_fall(node))
-	    return ;
-	  i = 2;
-	}
-      speed = 0;
-      while (speed < (i * i))
+      if (speed == 2)
+	if (first_cell_fall(node))
+	  return ;
+      while (((int)speed - 2 < (i * i)) && (i != -1))
 	{
 	  usleep(FALL_SPEED / (i * i));
-	  check_fall_dead(node, count);
 	  if (landing(node) == 0)
-	    return ;
-	  ++speed;
-	  ++count;
+	    i = -1;
+	  else
+	    ++speed;
 	}
       ++i;
     }
+  check_fall_dead(node, speed);
 }
 
 void		jump(t_node *node)
