@@ -5,13 +5,15 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:57 2014 Jean Gravier
-** Last update Sat Mar  8 20:56:17 2014 Jean Gravier
+** Last update Sun Mar  9 01:01:57 2014 Fritsch harold
 */
 
 #ifndef EPIKONG_H_
 # define EPIKONG_H_
 # define BLOCK_SIZE 30
 # define FALL_SPEED 50000
+# define TRUE 1
+# define FALSE 0
 
 # define INVALID_MAP_MSG "Invalid map"
 # define SPRITE_WALL "../data/map/world/wall4.png"
@@ -50,6 +52,7 @@ typedef struct	s_character
   size_t	x;
   size_t	y;
   t_direction	direction;
+  char		in_air;
 }		t_character;
 
 typedef struct	s_node
@@ -95,6 +98,7 @@ void		draw_map(t_map *, SDL_Surface *);
 
 void		set_position(t_map *, t_character *, char);
 size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
+void		set_char_type(t_character *, char, int, int);
 
 /*
 ** ia.c
@@ -103,9 +107,19 @@ size_t		*set_nposition(t_map *, t_character *, char, size_t[2]);
 void		move_ia(t_node *);
 
 /*
+** check.c
+*/
+
+int		valid(t_map *, size_t, size_t);
+int		is_walkable(t_map *, size_t, size_t);
+SDL_Surface	*get_old_block(t_node *, size_t, size_t, t_character *);
+void		check_keys(t_node *, Uint8 *, int *);
+
+/*
 ** movement.c
 */
 
+void		fill_rect(t_character *, SDL_Rect *);
 int		move_left(t_node *, t_character *);
 int		move_right(t_node *, t_character *);
 int		move_up(t_node *, t_character *);
@@ -117,6 +131,15 @@ int		move_down(t_node *, t_character *);
 
 void		jump_left(t_node *);
 void		jump_right(t_node *);
+void		jump(t_node *);
+char		first_cell_fall(t_node *);
 void		fall(t_node *);
+
+/*
+** ladder.c
+*/
+
+int		ladder_up(t_node *);
+void		ladder_down(t_node *);
 
 #endif /* !EPIKONG_H_ */
