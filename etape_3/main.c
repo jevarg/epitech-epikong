@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 19:51:51 2014 Fritsch harold
+** Last update Sun Mar  9 20:22:56 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -86,8 +86,10 @@ void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
   s->map = map;
   p->in_air = FALSE;
   s->player = p;
+  s->player->life = 3;
   s->surface  = sur;
   s->musique[GAME] = Mix_LoadMUS(SOUND_GAME);
+  s->musique[KEY] = Mix_LoadMUS(SOUND_KEY);
 }
 
 int		main()
@@ -111,6 +113,7 @@ int		main()
   Mix_PlayMusic(s.musique[GAME], -1);
   sdl_loop(&s);
   Mix_FreeMusic(s.musique[GAME]);
+  Mix_FreeMusic(s.musique[KEY]);
   Mix_CloseAudio();
   SDL_Quit();
   return (0);
