@@ -1,11 +1,11 @@
 /*
 ** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sun Mar  9 23:10:17 2014 Fritsch harold
-** Last update Sun Mar  9 23:10:26 2014 Fritsch harold
+** Last update Sun Mar  9 23:16:37 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -59,7 +59,6 @@ void		sdl_loop(t_node *node)
 		   && (((k = event.key.keysym.sym) == U) || k == D || k == L ||
 		       k == R || k == E || k == Q))
 	    {
-	      check_current_block(node);
 	      check_keys(node, keystates, &node->stop, &event);
 	      --i;
 	    }

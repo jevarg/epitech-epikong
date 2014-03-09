@@ -1,11 +1,11 @@
 /*
 ** check.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
-** Last update Sun Mar  9 23:09:29 2014 Fritsch harold
+** Last update Sun Mar  9 23:16:57 2014 Jean Gravier
 */
 
 #include "epikong.h"
@@ -68,7 +68,8 @@ void		check_keys(t_node *node, Uint8 *keystates,
   else if (event->key.keysym.sym == U)
     check_jump(node);
   else if (event->key.keysym.sym == SDLK_RETURN)
-    get_key(node);;
+    get_key(node);
   if (keystates[SDLK_ESCAPE])
     *stop = 1;
+  check_current_block(node);
 }
