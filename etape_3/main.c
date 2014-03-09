@@ -1,11 +1,11 @@
 /*
 ** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
-** 
+**
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-** 
+**
 ** Started on  Sun Mar  9 22:08:29 2014 Fritsch harold
-** Last update Sun Mar  9 22:08:33 2014 Fritsch harold
+** Last update Sun Mar  9 22:42:12 2014 Jean Gravier
 */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@ void		get_vilains(t_node *node)
 	exit_error("malloc error");
       last_pos = set_nposition(node->map, node->vilains[i], 'm', last_pos);
       node->vilains[i]->direction = LEFT;
+      node->vilains[i]->type = VILAIN;
       ++i;
     }
 }
