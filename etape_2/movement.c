@@ -5,118 +5,116 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 20:52:30 2014 Jean Gravier
-** Last update Sun Mar  9 14:41:18 2014 Jean Gravier
+** Last update Sun Mar  9 22:23:35 2014 Fritsch harold
 */
 
 #include "epikong.h"
 
-void		fill_rect(t_character *character, SDL_Rect *rect)
+void		fill_rect(t_character *c, SDL_Rect *rect)
 {
-  rect->x = character->x * BLOCK_SIZE;
-  rect->y = character->y * BLOCK_SIZE;
+  rect->x = c->x * BLOCK_SIZE;
+  rect->y = c->y * BLOCK_SIZE;
   rect->w = BLOCK_SIZE;
   rect->h = BLOCK_SIZE;
 }
 
-int		move_left(t_node *node, t_character *character)
+int		move_left(t_node *node, t_character *c)
 {
   SDL_Rect	rect;
   SDL_Surface	*old;
 
-  if ((character->x - 1) > 0
-      && valid(node->map, character->x - 1, character->y))
+  if ((c->x - 1) > 0
+      && valid(node->map, c->x - 1, c->y))
     {
-      if (character->type == VILAIN
-	  && !is_walkable(node->map, character->x - 1, character->y + 1))
+      if (c->type == VILAIN && !is_walkable(node->map, c->x - 1, c->y + 1))
 	return (0);
-      fill_rect(character, &rect);
+      fill_rect(c, &rect);
       blit_part(node->surface, &rect, "../data/contents/backgrounds/bg1.png");
-      if ((old = get_old_block(node, character->x, character->y, character)))
+      if ((old = get_old_block(node, c->x, c->y, c)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       SDL_FreeSurface(old);
-      character->x -= 1;
-      if (character->type == PLAYER)
+      c->x -= 1;
+      if (c->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_LEFT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
-      if (character->type == VILAIN)
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
+      if (c->type == VILAIN)
 	draw_image(node->surface, SPRITE_VILAIN_LEFT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
-      if ((character->type == PLAYER) && character->in_air == FALSE)
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
+      if ((c->type == PLAYER) && c->in_air == FALSE)
 	fall(node);
       return (1);
     }
   return (0);
 }
 
-int		move_right(t_node *node, t_character *character)
+int		move_right(t_node *node, t_character *c)
 {
   SDL_Rect	rect;
   SDL_Surface	*old;
 
-  if ((character->x + 1) < node->map->width
-      && valid(node->map, character->x + 1, character->y))
+  if ((c->x + 1) < node->map->width
+      && valid(node->map, c->x + 1, c->y))
     {
-      if (character->type == VILAIN
-	  && !is_walkable(node->map, character->x + 1, character->y + 1))
+      if (c->type == VILAIN && !is_walkable(node->map, c->x + 1, c->y + 1))
 	return (0);
-      fill_rect(character, &rect);
+      fill_rect(c, &rect);
       blit_part(node->surface, &rect, "../data/contents/backgrounds/bg1.png");
-      if ((old = get_old_block(node, character->x, character->y, character)))
+      if ((old = get_old_block(node, c->x, c->y, c)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       SDL_FreeSurface(old);
-      character->x += 1;
-      if (character->type == PLAYER)
+      c->x += 1;
+      if (c->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_RIGHT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
-      else if (character->type == VILAIN)
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
+      else if (c->type == VILAIN)
 	draw_image(node->surface, SPRITE_VILAIN_RIGHT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
-      if ((character->type == PLAYER) && (character->in_air == FALSE))
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
+      if ((c->type == PLAYER) && (c->in_air == FALSE))
 	fall(node);
       return (1);
     }
   return (0);
 }
 
-int		move_up(t_node *node, t_character *character)
+int		move_up(t_node *node, t_character *c)
 {
   SDL_Rect	rect;
   SDL_Surface	*old;
 
-  if ((character->y - 1) > 0
-      && valid(node->map, character->x, character->y - 1))
+  if ((c->y - 1) > 0
+      && valid(node->map, c->x, c->y - 1))
     {
-      fill_rect(character, &rect);
+      fill_rect(c, &rect);
       blit_part(node->surface, &rect, "../data/contents/backgrounds/bg1.png");
-      if ((old = get_old_block(node, character->x, character->y, character)))
+      if ((old = get_old_block(node, c->x, c->y, c)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       SDL_FreeSurface(old);
-      character->y -= 1;
-      if (character->type == PLAYER)
+      c->y -= 1;
+      if (c->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_LEFT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
       return (1);
     }
   return (0);
 }
 
-int		move_down(t_node *node, t_character *character)
+int		move_down(t_node *node, t_character *c)
 {
   SDL_Rect	rect;
   SDL_Surface	*old;
 
-  if ((character->y + 1) > 0
-      && valid(node->map, character->x, character->y + 1))
+  if ((c->y + 1) > 0
+      && valid(node->map, c->x, c->y + 1))
     {
-      fill_rect(character, &rect);
+      fill_rect(c, &rect);
       blit_part(node->surface, &rect, "../data/contents/backgrounds/bg1.png");
-      if ((old = get_old_block(node, character->x, character->y, character)))
+      if ((old = get_old_block(node, c->x, c->y, c)))
 	SDL_BlitSurface(old, NULL, node->surface, &rect);
       SDL_FreeSurface(old);
-      character->y += 1;
-      if (character->type == PLAYER)
+      c->y += 1;
+      if (c->type == PLAYER)
 	draw_image(node->surface, SPRITE_PLAYER_LEFT,
-		   character->x * BLOCK_SIZE, character->y * BLOCK_SIZE);
+		   c->x * BLOCK_SIZE, c->y * BLOCK_SIZE);
       return (1);
     }
   return (0);

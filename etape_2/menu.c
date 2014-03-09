@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Sat Mar  8 21:45:53 2014 Jean Gravier
-** Last update Sun Mar  9 19:46:34 2014 Jean Gravier
+** Last update Sun Mar  9 22:24:53 2014 Fritsch harold
 */
 
 #include <unistd.h>
@@ -116,7 +116,8 @@ void		menu(SDL_Surface *surface, t_map *map)
 
   surface = SDL_SetVideoMode(800, 600, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
   draw_image(surface, "../data/map/backgrounds/bg.png", 0, 0);
-  draw_image(surface, "../data/contents/menu/thumb/map1.png", ((800 / 2) - (500 / 2)), 150);
+  draw_image(surface, "../data/contents/menu/thumb/map1.png",
+	     ((800 / 2) - (500 / 2)), 150);
   SDL_Flip(surface);
   music = Mix_LoadMUS(SOUND_MENU);
   Mix_PlayMusic(music, -1);

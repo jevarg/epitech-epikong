@@ -1,11 +1,11 @@
 /*
-** check.c for  in /home/fritsc_h/projets/T2Rush1/etape_2
-**
+** check.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
 ** Made by Fritsch harold
 ** Login   <fritsc_h@epitech.net>
-**
-** Started on  Sat Mar  8 23:32:23 2014 Fritsch harold
-** Last update Sun Mar  9 21:49:10 2014 Jean Gravier
+** 
+** Started on  Sun Mar  9 22:09:24 2014 Fritsch harold
+** Last update Sun Mar  9 22:09:25 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -61,6 +61,7 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
   func_tab2[SDLK_RIGHT] = &move_right;
   func_tab[SDLK_UP] = &check_jump;
   func_tab[SDLK_DOWN] = &ladder_down;
+  func_tab[SDLK_RETURN] = &get_key;
 
   if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
     jump_left(node);
@@ -69,9 +70,10 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
   else if ((event->key.keysym.sym == SDLK_LEFT) ||
 	   (event->key.keysym.sym == SDLK_RIGHT) ||
 	   (event->key.keysym.sym == SDLK_DOWN) ||
-	   (event->key.keysym.sym == SDLK_UP))
+	   (event->key.keysym.sym == SDLK_UP) ||
+	   (event->key.keysym.sym == SDLK_RETURN))
     {
-      if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_DOWN)
+      if (keystates[SDLK_UP] || keystates[SDLK_DOWN] || keystates[SDLK_RETURN])
 	(*func_tab[event->key.keysym.sym])(node);
       else if (keystates[SDLK_LEFT] || keystates[SDLK_RIGHT])
 	(*func_tab2[event->key.keysym.sym])(node, node->player);

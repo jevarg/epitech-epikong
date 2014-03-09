@@ -4,8 +4,8 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sun Mar  9 20:06:43 2014 Jean Gravier
-** Last update Sun Mar  9 22:27:29 2014 Jean Gravier
+** Started on  Sun Mar  9 22:30:54 2014 Jean Gravier
+** Last update Sun Mar  9 22:32:01 2014 Jean Gravier
 */
 
 #ifndef EPIKONG_H_
@@ -35,7 +35,6 @@
 # define SOUND_GAME "../data/contents/sound/Static.ogg"
 # define KEY (1)
 # define GAME (0)
-
 
 # include <SDL/SDL.h>
 # include <SDL/SDL_mixer.h>
@@ -176,6 +175,12 @@ void		menu(SDL_Surface *, t_map *);
 */
 
 void		check_fall_dead(t_node *, int);
+
+/*
+** key.c
+*/
+
+void		get_key(t_node *);
 void		player_die(t_node *);
 
 /*

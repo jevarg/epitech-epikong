@@ -5,7 +5,7 @@
 ** Login   <gravie_j@epitech.net>
 **
 ** Started on  Fri Mar  7 21:22:45 2014 Jean Gravier
-** Last update Sun Mar  9 14:09:24 2014 Fritsch harold
+** Last update Sun Mar  9 22:10:18 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -36,7 +36,8 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
     }
-  surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height * BLOCK_SIZE, 32, SDL_HWSURFACE);
+  surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height *
+			     BLOCK_SIZE, 32, SDL_HWSURFACE);
   SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
   SDL_Flip(surface);
   return (surface);

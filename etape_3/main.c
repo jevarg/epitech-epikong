@@ -1,11 +1,11 @@
 /*
-** main.c for rush in /home/gravie_j/Documents/projets/T2Rush1/etape_2
-**
-** Made by Jean Gravier
-** Login   <gravie_j@epitech.net>
-**
-** Started on  Sun Mar  9 16:10:45 2014 Jean Gravier
-** Last update Sun Mar  9 21:43:49 2014 Jean Gravier
+** main.c for  in /home/fritsc_h/projets/T2Rush1/etape_3
+** 
+** Made by Fritsch harold
+** Login   <fritsc_h@epitech.net>
+** 
+** Started on  Sun Mar  9 22:08:29 2014 Fritsch harold
+** Last update Sun Mar  9 22:08:33 2014 Fritsch harold
 */
 
 #include <stdio.h>
@@ -59,7 +59,8 @@ void		sdl_loop(t_node *node)
 	  else if ((event.type == SDL_KEYDOWN) &&
 		   (((k = event.key.keysym.sym) == SDLK_UP) ||
 		    (k == SDLK_DOWN) || (k == SDLK_LEFT) ||
-		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE)))
+		    (k == SDLK_RIGHT) || (k == SDLK_ESCAPE) ||
+		    (k == SDLK_RETURN)))
 	    {
 	      check_current_block(node);
 	      check_keys(node, keystates, &node->stop, &event);

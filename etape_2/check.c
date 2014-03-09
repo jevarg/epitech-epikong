@@ -5,7 +5,7 @@
 ** Login   <fritsc_h@epitech.net>
 ** 
 ** Started on  Sat Mar  8 23:32:23 2014 Fritsch harold
-** Last update Sun Mar  9 18:20:57 2014 Fritsch harold
+** Last update Sun Mar  9 22:18:10 2014 Fritsch harold
 */
 
 #include "epikong.h"
@@ -52,11 +52,12 @@ void		check_jump(t_node *node)
     jump(node);
 }
 
-void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
+void		check_keys(t_node *node, Uint8 *keystates,
+			   int *stop, SDL_Event *event)
 {
   void		(*func_tab[SDLK_LEFT + 1])(t_node *);
   int		(*func_tab2[SDLK_LEFT + 1])(t_node *, t_character *);
-  
+
   func_tab2[SDLK_LEFT] = &move_left;
   func_tab2[SDLK_RIGHT] = &move_right;
   func_tab[SDLK_UP] = &check_jump;
@@ -71,7 +72,8 @@ void		check_keys(t_node *node, Uint8 *keystates, int *stop, SDL_Event *event)
 	   (event->key.keysym.sym == SDLK_DOWN) ||
 	   (event->key.keysym.sym == SDLK_UP))
     {
-      if (event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_DOWN)
+      if (event->key.keysym.sym == SDLK_UP ||
+	  event->key.keysym.sym == SDLK_DOWN)
 	(*func_tab[event->key.keysym.sym])(node);
       else if (keystates[SDLK_LEFT] || keystates[SDLK_RIGHT])
 	(*func_tab2[event->key.keysym.sym])(node, node->player);
