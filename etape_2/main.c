@@ -4,32 +4,14 @@
 ** Made by Jean Gravier
 ** Login   <gravie_j@epitech.net>
 **
-** Started on  Sat Mar  8 20:52:41 2014 Jean Gravier
-** Last update Sun Mar  9 01:28:58 2014 Jean Gravier
+** Started on  Sun Mar  9 01:31:11 2014 Jean Gravier
+** Last update Sun Mar  9 01:31:35 2014 Jean Gravier
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "epikong.h"
-
-void		check_keys(t_node *node, Uint8 *keystates, int *stop)
-{
-  if (keystates[SDLK_ESCAPE])
-    *stop = 1;
-  else if (keystates[SDLK_LEFT] && keystates[SDLK_UP])
-    jump_left(node);
-  else if (keystates[SDLK_RIGHT] && keystates[SDLK_UP])
-    jump_right(node);
-  else if (keystates[SDLK_LEFT])
-    move_left(node, node->player);
-  else if (keystates[SDLK_RIGHT])
-    move_right(node, node->player);
-  else if (keystates[SDLK_UP])
-    jump(node);
-  else if (keystates[SDLK_DOWN])
-    ;//move_down(node, node->player);
-}
 
 void		get_vilains(t_node *node)
 {
@@ -41,7 +23,8 @@ void		get_vilains(t_node *node)
     exit_error("malloc error");
   last_pos[0] = 0;
   last_pos[1] = 0;
-  if ((node->vilains = malloc(sizeof(t_character *) * node->nb_vilains)) == NULL)
+  if ((node->vilains = malloc(sizeof(t_character *) * node->nb_vilains))
+      == NULL)
     exit_error("malloc error");
   while (i < node->nb_vilains)
     {
@@ -66,6 +49,7 @@ void		sdl_loop(t_node *node)
       SDL_PollEvent(&event);
       usleep(50000);
       move_ia(node);
+      fall(node);
       if (event.type == SDL_QUIT)
 	stop = 1;
       else if (event.type == SDL_KEYDOWN)
@@ -80,19 +64,20 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
   SDL_Surface	*background;
   SDL_Rect	rect;
 
-  background = get_image("../data/map/backgrounds/bg1.png");
+  background = get_image("../data/contents/backgrounds/bg1.png");
   if (SDL_Init(SDL_INIT_VIDEO) == -1)
     {
       fprintf(stderr, "Erreur initialisation SDL: %s\n", SDL_GetError());
       exit(EXIT_FAILURE);
     }
-  surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height * BLOCK_SIZE, 32, SDL_HWSURFACE);
+  surface = SDL_SetVideoMode(map->width * BLOCK_SIZE, map->height *
+			     BLOCK_SIZE, 32, SDL_HWSURFACE);
   rect.x = 0;
   rect.y = 0;
   rect.w = surface->w;
   rect.h = surface->h;
-  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
-  //SDL_BlitSurface(background, NULL, surface, &rect);
+  //  SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 40, 40, 40));
+  SDL_BlitSurface(background, NULL, surface, &rect);
   SDL_Flip(surface);
   SDL_WM_SetCaption("Super Expendablos Deluxe Edifion", NULL);
   return (surface);
@@ -101,6 +86,7 @@ SDL_Surface	*sdl_init(t_map *map, SDL_Surface *surface)
 void		init(t_node *s, t_map *map, t_character *p, SDL_Surface *sur)
 {
   s->map = map;
+  p->in_air = FALSE;
   s->player = p;
   s->surface  = sur;
 }
